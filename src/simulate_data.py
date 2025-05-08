@@ -11,7 +11,7 @@ from src.config import TRANSACTIONS_CSV, SIMULATED_TRANSACTIONS_CSV
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-def simulate_large_transactions_csv(target_rows=2000, input_csv_path=TRANSACTIONS_CSV, output_csv_path=SIMULATED_TRANSACTIONS_CSV):
+def simulate_large_transactions_csv(target_rows=20000, input_csv_path=TRANSACTIONS_CSV, output_csv_path=SIMULATED_TRANSACTIONS_CSV):
     logging.info(f"Starting data simulation (memory-efficient chunked writing) to reach approximately {target_rows} rows.")
 
     try:

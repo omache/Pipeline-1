@@ -1,0 +1,13 @@
+# requirements.txt
+# Python package dependencies for the address matching pipeline.
+
+pandas>=1.0.0
+psycopg2-binary>=2.8.0 # Use psycopg2-binary for easier installation
+usaddress>=0.5.0
+rapidfuzz>=0.18.0
+jellyfish>=0.9.0
+Flask>=2.0.0 # Required for the optional API endpoint
+gunicorn>=20.0.0 # (Optional) A WSGI server for Flask in production
+python-dotenv>=0.19.0 # (Optional) For loading environment variables from a .env file
+memory_profiler>=0.60.0 # For profiling memory usage
+tdqm>=1.0.0

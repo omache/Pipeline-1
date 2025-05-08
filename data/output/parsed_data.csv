@@ -1,0 +1,322 @@
+id,raw_address,parsed_street_number,parsed_pre_directional,parsed_street_name,parsed_street_suffix,parsed_unit,normalized_address
+none-withers-street-unit-2a-brooklyn-ny-11211,Withers Street Unit 2A,,,Withers,ST,2A,WITHERS ST APT 2A
+none-north-7th-street-unit-phb-brooklyn-ny-11211,North 7th Street Unit PHB,,N,7th,ST,,N 7TH ST
+none-465-humboldt-street-none-williamsburg-ny-11211,465 Humboldt Street NaN,465,,Humboldt,ST,,465 HUMBOLDT ST
+none-30-bushwick-avenue-unit-1a-brooklyn-ny-11211,30 Bushwick Avenue Unit 1A,30,,Bushwick,AVE,1A,30 BUSHWICK AVE APT 1A
+none-251-253-north-8th-street-none-brooklyn-ny-11211,251-253 North 8th Street NaN,251-253,N,8th,ST,,251-253 N 8TH ST
+none-30-bushwick-avenue-unit-4d-brooklyn-ny-11211,30 Bushwick Avenue Unit 4D,30,,Bushwick,AVE,4D,30 BUSHWICK AVE APT 4D
+none-242-south-1st-street-unit-4e-brooklyn-ny-11211,242 South 1st Street Unit 4E,242,S,1st,ST,4E,242 S 1ST ST APT 4E
+none-manhattan-avenue-unit-4r-brooklyn-ny-11211,Manhattan Avenue Unit 4R,,,Manhattan,AVE,4R,MANHATTAN AVE APT 4R
+none-277-south-2nd-street-none-brooklyn-ny-11211,277 South 2nd Street NaN,277,S,2nd,ST,,277 S 2ND ST
+none-764-metropolitan-avenue-unit-2b-brooklyn-ny-11211,764 Metropolitan Avenue Unit 2B,764,,Metropolitan,AVE,2B,764 METROPOLITAN AVE APT 2B
+none-13-conselyea-street-none-brooklyn-ny-11211,13 Conselyea Street NaN,13,,Conselyea,ST,,13 CONSELYEA ST
+none-withers-street-unit-2-brooklyn-ny-11211,Withers Street Unit 2,,,Withers,ST,2,WITHERS ST APT 2
+none-323-south-5th-street-unit-2-brooklyn-ny-11211,323 South 5th Street Unit 2,323,S,5th,ST,2,323 S 5TH ST APT 2
+rplu-10325230448-174-north-6th-street-none-brooklyn-ny-11211,174 North 6th Street NaN,174,N,6th,ST,,174 N 6TH ST
+none-skillman-avenue-unit-4f-brooklyn-ny-11211,Skillman Avenue Unit 4F,,,Skillman,AVE,4F,SKILLMAN AVE APT 4F
+none-bushwick-avenue-unit-8b-brooklyn-ny-11211,Bushwick Avenue Unit 8B,,,Bushwick,AVE,8B,BUSHWICK AVE APT 8B
+none-364-manhattan-avenue-unit-4g-brooklyn-ny-11211,364 Manhattan Avenue Unit 4G,364,,Manhattan,AVE,4G,364 MANHATTAN AVE APT 4G
+none-323-south-5th-street-unit-1-brooklyn-ny-11211,323 South 5th Street Unit 1,323,S,5th,ST,1,323 S 5TH ST APT 1
+none-679-lorimer-street-none-brooklyn-ny-11211,679 Lorimer Street NaN,679,,Lorimer,ST,,679 LORIMER ST
+none-skillman-avenue-unit-3-brooklyn-ny-11211,Skillman Avenue Unit 3,,,Skillman,AVE,3,SKILLMAN AVE APT 3
+none-metropolitan-avenue-unit-5h-brooklyn-ny-11211,Metropolitan Avenue Unit 5H,,,Metropolitan,AVE,5H,METROPOLITAN AVE APT 5H
+none-211-jackson-street-unit-garden-brooklyn-ny-11211,211 Jackson Street Unit GARDEN,211,,Jackson Street Unit,,,211 JACKSON STREET UNIT
+none-30-bushwick-avenue-unit-7a-brooklyn-ny-11211,30 Bushwick Avenue Unit 7A,30,,Bushwick,AVE,7A,30 BUSHWICK AVE APT 7A
+none-76-roebling-street-unit-4b-brooklyn-ny-11211,76 Roebling Street Unit 4B,76,,Roebling,ST,4B,76 ROEBLING ST APT 4B
+none-south-5th-street-unit-3-brooklyn-ny-11211,South 5th Street Unit 3,,S,5th,ST,3,S 5TH ST APT 3
+none-30-bayard-street-unit-1a-brooklyn-ny-11211,30 Bayard Street Unit 1A,30,,Bayard,ST,1A,30 BAYARD ST APT 1A
+none-north-11th-street-unit-1l-brooklyn-ny-11211,North 11th Street Unit 1L,,N,11th,ST,1L,N 11TH ST APT 1L
+none-manhattan-avenue-unit-2r-brooklyn-ny-11211,Manhattan Avenue Unit 2R,,,Manhattan,AVE,2R,MANHATTAN AVE APT 2R
+none-165-north-10th-street-unit-3a-brooklyn-ny-11211,165 North 10th Street Unit 3A,165,N,10th,ST,3A,165 N 10TH ST APT 3A
+none-171-north-1st-street-unit-3a-brooklyn-ny-11211,171 North 1st Street Unit 3A,171,N,1st,ST,3A,171 N 1ST ST APT 3A
+none-139-skillman-avenue-unit-9b-brooklyn-ny-11211,139 Skillman Avenue Unit 9B,139,,Skillman,AVE,9B,139 SKILLMAN AVE APT 9B
+none-manhattan-avenue-unit-3r-brooklyn-ny-11211,Manhattan Avenue Unit 3R,,,Manhattan,AVE,3R,MANHATTAN AVE APT 3R
+none-171-north-1st-street-unit-3c-brooklyn-ny-11211,171 North 1st Street Unit 3C,171,N,1st,ST,3C,171 N 1ST ST APT 3C
+none-549-metropolitan-avenue-unit-a-williamsburg-ny-11211,549 Metropolitan Avenue Unit A,549,,Metropolitan,AVE,,549 METROPOLITAN AVE
+none-76-richardson-street-unit-7-williamsburg-ny-11211,76 Richardson Street Unit 7,76,,Richardson,ST,7,76 RICHARDSON ST APT 7
+none-conselyea-street-unit-2-brooklyn-ny-11211,Conselyea Street Unit 2,,,Conselyea,ST,2,CONSELYEA ST APT 2
+none-139-skillman-avenue-unit-9ab-brooklyn-ny-11211,139 Skillman Avenue Unit 9AB,139,,Skillman,AVE,9AB,139 SKILLMAN AVE APT 9AB
+none-bushwick-avenue-unit-5b-brooklyn-ny-11211,Bushwick Avenue Unit 5B,,,Bushwick,AVE,5B,BUSHWICK AVE APT 5B
+none-108-division-avenue-unit-12a-brooklyn-ny-11211,108 Division Avenue Unit 12A,108,,Division,AVE,12A,108 DIVISION AVE APT 12A
+none-256-withers-street-unit-6fam-brooklyn-ny-11211,256 Withers Street Unit 6FAM,256,,Withers,ST,6FAM,256 WITHERS ST APT 6FAM
+none-179-jackson-street-unit-5-brooklyn-ny-11211,179 Jackson Street Unit 5,179,,Jackson,ST,5,179 JACKSON ST APT 5
+none-manhattan-avenue-unit-2-brooklyn-ny-11211,Manhattan Avenue Unit 2,,,Manhattan,AVE,2,MANHATTAN AVE APT 2
+none-hope-street-unit-pha-brooklyn-ny-11211,Hope Street Unit PHA,,,Hope,ST,,HOPE ST
+none-15-roebling-street-unit-4a-brooklyn-ny-11211,15 Roebling Street Unit 4A,15,,Roebling,ST,4A,15 ROEBLING ST APT 4A
+none-237-withers-street-none-brooklyn-ny-11211,237 Withers Street NaN,237,,Withers,ST,,237 WITHERS ST
+none-100-maspeth-avenue-unit-2j-brooklyn-ny-11211,100 Maspeth Avenue Unit 2J,100,,Maspeth,AVE,2J,100 MASPETH AVE APT 2J
+none-432-grand-street-unit-201-brooklyn-ny-11211,432 Grand Street Unit 201,432,,Grand,ST,201,432 GRAND ST APT 201
+none-50-bayard-street-unit-2g-brooklyn-ny-11211,50 Bayard Street Unit 2G,50,,Bayard,ST,2G,50 BAYARD ST APT 2G
+none-224-north-6th-street-unit-2r-brooklyn-ny-11211,224 North 6th Street Unit 2R,224,N,6th,ST,2R,224 N 6TH ST APT 2R
+none-305-union-avenue-unit-4d-5d-brooklyn-ny-11211,305 Union Avenue Unit 4D/5D,305,,Union,AVE,4D5D,305 UNION AVE APT 4D5D
+none-305-union-avenue-unit-5c-brooklyn-ny-11211,305 Union Avenue Unit 5C,305,,Union,AVE,5C,305 UNION AVE APT 5C
+none-179-jackson-street-unit-5a-brooklyn-ny-11211,179 Jackson Street Unit 5A,179,,Jackson,ST,5A,179 JACKSON ST APT 5A
+none-284-manhattan-avenue-none-brooklyn-ny-11211,284 Manhattan Avenue NaN,284,,Manhattan,AVE,,284 MANHATTAN AVE
+none-50-bayard-street-unit-3j-brooklyn-ny-11211,50 Bayard Street Unit 3J,50,,Bayard,ST,3J,50 BAYARD ST APT 3J
+none-229-withers-street-unit-3b-brooklyn-ny-11211,229 Withers Street Unit 3B,229,,Withers,ST,3B,229 WITHERS ST APT 3B
+none-bayard-street-unit-2g-brooklyn-ny-11211,Bayard Street Unit 2G,,,Bayard,ST,2G,BAYARD ST APT 2G
+none-roebling-street-unit-4b-brooklyn-ny-11211,Roebling Street Unit 4B,,,Roebling,ST,4B,ROEBLING ST APT 4B
+none-201-north-11th-street-unit-ph-brooklyn-ny-11211,201 North 11th Street Unit PH,201,N,11th,ST,,201 N 11TH ST
+none-devoe-street-unit-na-brooklyn-ny-11211,Devoe Street Unit NA,,,Devoe,ST,,DEVOE ST
+none-north-6th-street-unit-1-brooklyn-ny-11211,North 6th Street Unit 1,,N,6th,ST,1,N 6TH ST APT 1
+none-jackson-street-unit-1b-brooklyn-ny-11211,Jackson Street Unit 1B,,,Jackson,ST,1B,JACKSON ST APT 1B
+none-74-jackson-street-unit-5-brooklyn-ny-11211,74 Jackson Street Unit 5,74,,Jackson,ST,5,74 JACKSON ST APT 5
+none-union-avenue-unit-4d-5d-brooklyn-ny-11211,Union Avenue Unit 4D/5D,,,Union,AVE,4D5D,UNION AVE APT 4D5D
+none-170-south-4th-street-none-brooklyn-ny-11211,170 South 4th Street NaN,170,S,4th,ST,,170 S 4TH ST
+none-south-4th-street-unit-4a-brooklyn-ny-11211,South 4th Street Unit 4A,,S,4th,ST,4A,S 4TH ST APT 4A
+none-north-10th-street-unit-3a-brooklyn-ny-11211,North 10th Street Unit 3A,,N,10th,ST,3A,N 10TH ST APT 3A
+none-467-bedford-avenue-unit-6-brooklyn-ny-11211,467 Bedford Avenue Unit 6,467,,Bedford,AVE,6,467 BEDFORD AVE APT 6
+none-444-humboldt-street-unit-2-brooklyn-ny-11211,444 Humboldt Street Unit 2,444,,Humboldt,ST,2,444 HUMBOLDT ST APT 2
+none-147-hope-street-unit-3a-brooklyn-ny-11211,147 Hope Street Unit 3A,147,,Hope,ST,3A,147 HOPE ST APT 3A
+none-union-avenue-none-brooklyn-ny-11211,Union Avenue NaN,,,Union,AVE,,UNION AVE
+none-174-jackson-street-unit-2a-brooklyn-ny-11211,174 Jackson Street Unit 2A,174,,Jackson,ST,2A,174 JACKSON ST APT 2A
+none-withers-street-unit-5e-brooklyn-ny-11211,Withers Street Unit 5E,,,Withers,ST,5E,WITHERS ST APT 5E
+none-bushwick-avenue-unit-2b-brooklyn-ny-11211,Bushwick Avenue Unit 2B,,,Bushwick,AVE,2B,BUSHWICK AVE APT 2B
+none-devoe-street-none-brooklyn-ny-11211,Devoe Street NaN,,,Devoe,ST,,DEVOE ST
+none-308-north-7th-street-unit-4d-brooklyn-ny-11211,308 North 7th Street Unit 4D,308,N,7th,ST,4D,308 N 7TH ST APT 4D
+none-705-driggs-avenue-unit-13-brooklyn-ny-11211,705 Driggs Avenue Unit 13,705,,Driggs,AVE,13,705 DRIGGS AVE APT 13
+none-131-jackson-street-unit-phb-brooklyn-ny-11211,131 Jackson Street Unit PHB,131,,Jackson,ST,,131 JACKSON ST
+none-154-south-3rd-street-unit-24-brooklyn-ny-11211,154 South 3rd Street Unit 24,154,S,3rd,ST,24,154 S 3RD ST APT 24
+none-74-jackson-street-unit-1-brooklyn-ny-11211,74 Jackson Street Unit 1,74,,Jackson,ST,1,74 JACKSON ST APT 1
+none-177-hooper-street-none-brooklyn-ny-11211,177 Hooper Street NaN,177,,Hooper,ST,,177 HOOPER ST
+none-withers-street-unit-ph3-brooklyn-ny-11211,Withers Street Unit PH3,,,Withers,ST,PH3,WITHERS ST APT PH3
+none-179-woodpoint-road-unit-2c-brooklyn-ny-11211,179 Woodpoint Road Unit 2C,179,,Woodpoint,,2C,179 WOODPOINT APT 2C
+none-476-union-avenue-unit-ph5a-brooklyn-ny-11211,476 Union Avenue Unit PH5A,476,,Union,AVE,PH5A,476 UNION AVE APT PH5A
+none-264-north-9th-street-none-brooklyn-ny-11211,264 North 9th Street NaN,264,N,9th,ST,,264 N 9TH ST
+none-218-north-5th-street-none-brooklyn-ny-11211,218 North 5th Street NaN,218,N,5th,ST,,218 N 5TH ST
+none-30-bayard-street-unit-5f-brooklyn-ny-11211,30 Bayard Street Unit 5F,30,,Bayard,ST,5F,30 BAYARD ST APT 5F
+none-512-lorimer-street-none-brooklyn-ny-11211,512 Lorimer Street NaN,512,,Lorimer,ST,,512 LORIMER ST
+none-bayard-street-unit-2d-brooklyn-ny-11211,Bayard Street Unit 2D,,,Bayard,ST,2D,BAYARD ST APT 2D
+none-jackson-street-unit-2-brooklyn-ny-11211,Jackson Street Unit 2,,,Jackson,ST,2,JACKSON ST APT 2
+none-manhattan-avenue-unit-4f-brooklyn-ny-11211,Manhattan Avenue Unit 4F,,,Manhattan,AVE,4F,MANHATTAN AVE APT 4F
+none-manhattan-avenue-unit-3f-brooklyn-ny-11211,Manhattan Avenue Unit 3F,,,Manhattan,AVE,3F,MANHATTAN AVE APT 3F
+none-726-metropolitan-avenue-unit-6-williamsburg-ny-11211,726 Metropolitan Avenue Unit 6,726,,Metropolitan,AVE,6,726 METROPOLITAN AVE APT 6
+none-manhattan-avenue-none-brooklyn-ny-11211,Manhattan Avenue NaN,,,Manhattan,AVE,,MANHATTAN AVE
+none-maspeth-avenue-unit-2d-brooklyn-ny-11211,Maspeth Avenue Unit 2D,,,Maspeth,AVE,2D,MASPETH AVE APT 2D
+none-bayard-street-unit-3g-brooklyn-ny-11211,Bayard Street Unit 3G,,,Bayard,ST,3G,BAYARD ST APT 3G
+none-grand-street-none-brooklyn-ny-11211,Grand Street NaN,,,Grand,ST,,GRAND ST
+none-division-avenue-unit-16-brooklyn-ny-11211,Division Avenue Unit 16,,,Division,AVE,16,DIVISION AVE APT 16
+none-skillman-avenue-unit-1a-brooklyn-ny-11211,Skillman Avenue Unit 1A,,,Skillman,AVE,1A,SKILLMAN AVE APT 1A
+none-bushwick-avenue-unit-7b-brooklyn-ny-11211,Bushwick Avenue Unit 7B,,,Bushwick,AVE,7B,BUSHWICK AVE APT 7B
+none-north-11th-street-unit-4w-brooklyn-ny-11211,North 11th Street Unit 4W,,N,11th,ST,4W,N 11TH ST APT 4W
+none-havemeyer-street-unit-6a-brooklyn-ny-11211,Havemeyer Street Unit 6A,,,Havemeyer,ST,6A,HAVEMEYER ST APT 6A
+none-96-woodpoint-road-unit-2c-brooklyn-ny-11211,96 Woodpoint Road Unit 2C,96,,Woodpoint,,2C,96 WOODPOINT APT 2C
+none-128-woodpoint-road-unit-5-brooklyn-ny-11211,128 Woodpoint Road Unit 5,128,,Woodpoint,,5,128 WOODPOINT APT 5
+none-153-south-4th-street-unit-5-williamsburg-ny-11211,153 South 4th Street Unit 5,153,S,4th,ST,5,153 S 4TH ST APT 5
+none-north-6th-street-unit-3-brooklyn-ny-11211,North 6th Street Unit 3,,N,6th,ST,3,N 6TH ST APT 3
+none-conselyea-street-unit-1-brooklyn-ny-11211,Conselyea Street Unit 1,,,Conselyea,ST,1,CONSELYEA ST APT 1
+none-361-manhattan-avenue-unit-4a-brooklyn-ny-11211,361 Manhattan Avenue Unit 4A,361,,Manhattan,AVE,4A,361 MANHATTAN AVE APT 4A
+none-30-bushwick-avenue-unit-6b-brooklyn-ny-11211,30 Bushwick Avenue Unit 6B,30,,Bushwick,AVE,6B,30 BUSHWICK AVE APT 6B
+none-215-north-10th-street-unit-pha-brooklyn-ny-11211,215 North 10th Street Unit PHA,215,N,10th,ST,,215 N 10TH ST
+none-237-ainslie-street-none-brooklyn-ny-11211,237 Ainslie Street NaN,237,,Ainslie,ST,,237 AINSLIE ST
+none-139-skillman-avenue-unit-9a-brooklyn-ny-11211,139 Skillman Avenue Unit 9A,139,,Skillman,AVE,9A,139 SKILLMAN AVE APT 9A
+none-south-5th-street-unit-c1-brooklyn-ny-11211,South 5th Street Unit C1,,S,5th,ST,C1,S 5TH ST APT C1
+none-union-avenue-unit-3c-brooklyn-ny-11211,Union Avenue Unit 3C,,,Union,AVE,3C,UNION AVE APT 3C
+none-bushwick-avenue-unit-6b-brooklyn-ny-11211,Bushwick Avenue Unit 6B,,,Bushwick,AVE,6B,BUSHWICK AVE APT 6B
+none-323-south-5th-street-unit-3-brooklyn-ny-11211,323 South 5th Street Unit 3,323,S,5th,ST,3,323 S 5TH ST APT 3
+none-bushwick-avenue-unit-4b-brooklyn-ny-11211,Bushwick Avenue Unit 4B,,,Bushwick,AVE,4B,BUSHWICK AVE APT 4B
+none-30-bushwick-avenue-unit-5a-brooklyn-ny-11211,30 Bushwick Avenue Unit 5A,30,,Bushwick,AVE,5A,30 BUSHWICK AVE APT 5A
+none-190-south-1st-street-unit-2b-brooklyn-ny-11211,190 South 1st Street Unit 2B,190,S,1st,ST,2B,190 S 1ST ST APT 2B
+none-roebling-street-unit-1-brooklyn-ny-11211,Roebling Street Unit 1,,,Roebling,ST,1,ROEBLING ST APT 1
+none-88-withers-street-unit-5e-brooklyn-ny-11211,88 Withers Street Unit 5E,88,,Withers,ST,5E,88 WITHERS ST APT 5E
+none-70-conselyea-street-none-brooklyn-ny-11211,70 Conselyea Street NaN,70,,Conselyea,ST,,70 CONSELYEA ST
+none-south-8th-street-unit-1a-brooklyn-ny-11211,South 8th Street Unit 1A,,S,8th,ST,1A,S 8TH ST APT 1A
+none-850-metropolitan-avenue-unit-1e-brooklyn-ny-11211,850 Metropolitan Avenue Unit 1E,850,,Metropolitan,AVE,1E,850 METROPOLITAN AVE APT 1E
+none-217-north-11th-street-unit-1-brooklyn-ny-11211,217 North 11th Street Unit 1,217,N,11th,ST,1,217 N 11TH ST APT 1
+none-217-219-devoe-street-none-brooklyn-ny-11211,217-219 Devoe Street NaN,217-219,,Devoe,ST,,217-219 DEVOE ST
+none-222-withers-street-unit-2a-brooklyn-ny-11211,222 Withers Street Unit 2A,222,,Withers,ST,2A,222 WITHERS ST APT 2A
+none-north-6th-street-unit-2r-brooklyn-ny-11211,North 6th Street Unit 2R,,N,6th,ST,2R,N 6TH ST APT 2R
+none-191-withers-street-unit-1r-brooklyn-ny-11211,191 Withers Street Unit 1R,191,,Withers,ST,1R,191 WITHERS ST APT 1R
+none-96-woodpoint-road-unit-3a-brooklyn-ny-11211,96 Woodpoint Road Unit 3A,96,,Woodpoint,,3A,96 WOODPOINT APT 3A
+none-2-bayard-street-unit-2d-brooklyn-ny-11211,2 Bayard Street Unit 2D,2,,Bayard,ST,2D,2 BAYARD ST APT 2D
+none-150-north-5th-street-unit-3j-brooklyn-ny-11211,150 North 5th Street Unit 3J,150,N,5th,ST,3J,150 N 5TH ST APT 3J
+none-north-8th-street-none-brooklyn-ny-11211,North 8th Street NaN,,N,8th,ST,,N 8TH ST
+none-74-jackson-street-unit-garden-brooklyn-ny-11211,74 Jackson Street Unit GARDEN,74,,Jackson Street Unit,,,74 JACKSON STREET UNIT
+none-jackson-street-unit-5-brooklyn-ny-11211,Jackson Street Unit 5,,,Jackson,ST,5,JACKSON ST APT 5
+none-88-withers-street-unit-ph3-brooklyn-ny-11211,88 Withers Street Unit PH3,88,,Withers,ST,PH3,88 WITHERS ST APT PH3
+none-devoe-street-unit-2r-brooklyn-ny-11211,Devoe Street Unit 2R,,,Devoe,ST,2R,DEVOE ST APT 2R
+none-havemeyer-street-none-brooklyn-ny-11211-0,Havemeyer Street NaN,,,Havemeyer,ST,,HAVEMEYER ST
+none-havemeyer-street-none-brooklyn-ny-11211,Havemeyer Street NaN,,,Havemeyer,ST,,HAVEMEYER ST
+none-jackson-street-unit-3b-brooklyn-ny-11211,Jackson Street Unit 3B,,,Jackson,ST,3B,JACKSON ST APT 3B
+none-north-8th-street-unit-ph-brooklyn-ny-11211,North 8th Street Unit PH,,N,8th,ST,,N 8TH ST
+none-684-lorimer-street-none-brooklyn-ny-11211,684 Lorimer Street NaN,684,,Lorimer,ST,,684 LORIMER ST
+none-30-bushwick-avenue-unit-5c-brooklyn-ny-11211,30 Bushwick Avenue Unit 5C,30,,Bushwick,AVE,5C,30 BUSHWICK AVE APT 5C
+none-590-lorimer-street-unit-1-brooklyn-ny-11211,590 Lorimer Street Unit 1,590,,Lorimer,ST,1,590 LORIMER ST APT 1
+none-270-south-2nd-street-none-brooklyn-ny-11211,270 South 2nd Street NaN,270,S,2nd,ST,,270 S 2ND ST
+none-128-woodpoint-road-unit-2-brooklyn-ny-11211,128 Woodpoint Road Unit 2,128,,Woodpoint,,2,128 WOODPOINT APT 2
+none-135-jackson-street-unit-1b-brooklyn-ny-11211,135 Jackson Street Unit 1B,135,,Jackson,ST,1B,135 JACKSON ST APT 1B
+none-390-manhattan-avenue-unit-ph-brooklyn-ny-11211,390 Manhattan Avenue Unit PH,390,,Manhattan,AVE,,390 MANHATTAN AVE
+none-390-manhattan-avenue-unit-2-brooklyn-ny-11211,390 Manhattan Avenue Unit 2,390,,Manhattan,AVE,2,390 MANHATTAN AVE APT 2
+none-union-avenue-unit-5c-brooklyn-ny-11211,Union Avenue Unit 5C,,,Union,AVE,5C,UNION AVE APT 5C
+none-30-bushwick-avenue-unit-2a-brooklyn-ny-11211,30 Bushwick Avenue Unit 2A,30,,Bushwick,AVE,2A,30 BUSHWICK AVE APT 2A
+none-bedford-avenue-unit-8-brooklyn-ny-11211,Bedford Avenue Unit 8,,,Bedford,AVE,8,BEDFORD AVE APT 8
+none-96-roebling-street-none-brooklyn-ny-11211,96 Roebling Street NaN,96,,Roebling,ST,,96 ROEBLING ST
+none-212-north-9th-street-unit-3c-brooklyn-ny-11211,212 North 9th Street Unit 3C,212,N,9th,ST,3C,212 N 9TH ST APT 3C
+none-170-north-11th-street-unit-3d-brooklyn-ny-11211,170 North 11th Street Unit 3D,170,N,11th,ST,3D,170 N 11TH ST APT 3D
+none-74-jackson-street-unit-3a-brooklyn-ny-11211,74 Jackson Street Unit 3A,74,,Jackson,ST,3A,74 JACKSON ST APT 3A
+none-20-bayard-street-unit-11b-brooklyn-ny-11211,20 Bayard Street Unit 11B,20,,Bayard,ST,11B,20 BAYARD ST APT 11B
+none-976-metropolitan-avenue-unit-1b-brooklyn-ny-11211,976 Metropolitan Avenue Unit 1B,976,,Metropolitan,AVE,1B,976 METROPOLITAN AVE APT 1B
+none-550-metropolitan-avenue-unit-commercial-brooklyn-ny-11211,550 Metropolitan Avenue Unit COMMERCIAL,550,,Metropolitan,AVE,,550 METROPOLITAN AVE
+none-214-north-11th-street-unit-1l-brooklyn-ny-11211,214 North 11th Street Unit 1L,214,N,11th,ST,1L,214 N 11TH ST APT 1L
+none-176-south-4th-street-unit-4a-brooklyn-ny-11211,176 South 4th Street Unit 4A,176,S,4th,ST,4A,176 S 4TH ST APT 4A
+none-339-bedford-avenue-unit-8-brooklyn-ny-11211,339 Bedford Avenue Unit 8,339,,Bedford,AVE,8,339 BEDFORD AVE APT 8
+none-185-withers-street-unit-4-brooklyn-ny-11211,185 Withers Street Unit 4,185,,Withers,ST,4,185 WITHERS ST APT 4
+none-190-south-1st-street-unit-4b-brooklyn-ny-11211,190 South 1st Street Unit 4B,190,S,1st,ST,4B,190 S 1ST ST APT 4B
+none-185-withers-street-unit-3-brooklyn-ny-11211,185 Withers Street Unit 3,185,,Withers,ST,3,185 WITHERS ST APT 3
+none-185-withers-street-unit-2-brooklyn-ny-11211,185 Withers Street Unit 2,185,,Withers,ST,2,185 WITHERS ST APT 2
+none-476-union-avenue-unit-4bb-brooklyn-ny-11211,476 Union Avenue Unit 4BB,476,,Union,AVE,4BB,476 UNION AVE APT 4BB
+none-139-skillman-avenue-unit-8a-brooklyn-ny-11211,139 Skillman Avenue Unit 8A,139,,Skillman,AVE,8A,139 SKILLMAN AVE APT 8A
+none-185-withers-street-unit-1-brooklyn-ny-11211,185 Withers Street Unit 1,185,,Withers,ST,1,185 WITHERS ST APT 1
+none-jackson-street-unit-3-brooklyn-ny-11211,Jackson Street Unit 3,,,Jackson,ST,3,JACKSON ST APT 3
+none-woodpoint-road-unit-3-brooklyn-ny-11211,Woodpoint Road Unit 3,,,Woodpoint,,3,WOODPOINT APT 3
+none-bayard-street-unit-3b-brooklyn-ny-11211,Bayard Street Unit 3B,,,Bayard,ST,3B,BAYARD ST APT 3B
+none-jackson-street-unit-4-brooklyn-ny-11211,Jackson Street Unit 4,,,Jackson,ST,4,JACKSON ST APT 4
+none-skillman-avenue-unit-2-brooklyn-ny-11211,Skillman Avenue Unit 2,,,Skillman,AVE,2,SKILLMAN AVE APT 2
+none-north-11th-street-unit-5r-brooklyn-ny-11211,North 11th Street Unit 5R,,N,11th,ST,5R,N 11TH ST APT 5R
+none-woodpoint-road-unit-1-brooklyn-ny-11211,Woodpoint Road Unit 1,,,Woodpoint,,1,WOODPOINT APT 1
+none-south-5th-street-unit-2-brooklyn-ny-11211,South 5th Street Unit 2,,S,5th,ST,2,S 5TH ST APT 2
+none-181-jackson-street-unit-ph-brooklyn-ny-11211,181 Jackson Street Unit PH,181,,Jackson,ST,,181 JACKSON ST
+none-149-conselyea-street-unit-4a-brooklyn-ny-11211,149 Conselyea Street Unit 4A,149,,Conselyea,ST,4A,149 CONSELYEA ST APT 4A
+none-719-grand-street-none-brooklyn-ny-11211,719 Grand Street NaN,719,,Grand,ST,,719 GRAND ST
+none-171-north-1st-street-unit-5b-brooklyn-ny-11211,171 North 1st Street Unit 5B,171,N,1st,ST,5B,171 N 1ST ST APT 5B
+none-323-south-5th-street-unit-4-brooklyn-ny-11211,323 South 5th Street Unit 4,323,S,5th,ST,4,323 S 5TH ST APT 4
+none-234-powers-street-none-brooklyn-ny-11211,234 Powers Street NaN,234,,Powers,ST,,234 POWERS ST
+none-360-south-3rd-street-none-brooklyn-ny-11211,360 South 3rd Street NaN,360,S,3rd,ST,,360 S 3RD ST
+none-329-grand-street-none-brooklyn-ny-11211,329 Grand Street NaN,329,,Grand,ST,,329 GRAND ST
+none-80-roebling-street-unit-1-brooklyn-ny-11211,80 Roebling Street Unit 1,80,,Roebling,ST,1,80 ROEBLING ST APT 1
+none-237-devoe-street-unit-1r-brooklyn-ny-11211,237 Devoe Street Unit 1R,237,,Devoe,ST,1R,237 DEVOE ST APT 1R
+none-296-manhattan-avenue-none-brooklyn-ny-11211,296 Manhattan Avenue NaN,296,,Manhattan,AVE,,296 MANHATTAN AVE
+none-1-powers-street-unit-602-brooklyn-ny-11211,1 Powers Street Unit 602,1,,Powers,ST,602,1 POWERS ST APT 602
+none-392-graham-avenue-unit-3b-brooklyn-ny-11211,392 Graham Avenue Unit 3B,392,,Graham,AVE,3B,392 GRAHAM AVE APT 3B
+none-108-jackson-street-unit-1a-brooklyn-ny-11211,108 Jackson Street Unit 1A,108,,Jackson,ST,1A,108 JACKSON ST APT 1A
+none-50-bayard-street-unit-3n-brooklyn-ny-11211,50 Bayard Street Unit 3N,50,,Bayard,ST,3N,50 BAYARD ST APT 3N
+none-532-lorimer-street-unit-1b-williamsburg-ny-11211,532 Lorimer Street Unit 1B,532,,Lorimer,ST,1B,532 LORIMER ST APT 1B
+none-207-north-8th-street-unit-ph-brooklyn-ny-11211,207 North 8th Street Unit PH,207,N,8th,ST,,207 N 8TH ST
+none-183-south-2nd-street-none-brooklyn-ny-11211,183 South 2nd Street NaN,183,S,2nd,ST,,183 S 2ND ST
+none-40-skillman-avenue-unit-3b-brooklyn-ny-11211,40 Skillman Avenue Unit 3B,40,,Skillman,AVE,3B,40 SKILLMAN AVE APT 3B
+none-108-withers-street-none-brooklyn-ny-11211,108 Withers Street NaN,108,,Withers,ST,,108 WITHERS ST
+none-390-broadway-none-williamsburg-ny-11211,390 Broadway NaN,390,w,Broadway NaN,,,390 W BROADWAY NAN
+none-18-orient-avenue-none-brooklyn-ny-11211,18 Orient Avenue NaN,18,,Orient,AVE,,18 ORIENT AVE
+none-south-8th-street-unit-1a-brooklyn-ny-11211-0,South 8th Street Unit 1A,,S,8th,ST,1A,S 8TH ST APT 1A
+none-446-humboldt-street-none-brooklyn-ny-11211-0,446 Humboldt Street NaN,446,,Humboldt,ST,,446 HUMBOLDT ST
+none-1-powers-street-unit-602-brooklyn-ny-11211-0,1 Powers Street Unit 602,1,,Powers,ST,602,1 POWERS ST APT 602
+none-150-north-5th-street-unit-1h-brooklyn-ny-11211,150 North 5th Street Unit 1H,150,N,5th,ST,1H,150 N 5TH ST APT 1H
+none-128-woodpoint-road-unit-2-brooklyn-ny-11211-0,128 Woodpoint Road Unit 2,128,,Woodpoint,,2,128 WOODPOINT APT 2
+none-108-withers-street-none-brooklyn-ny-11211-0,108 Withers Street NaN,108,,Withers,ST,,108 WITHERS ST
+none-323-south-5th-street-unit-4-brooklyn-ny-11211-0,323 South 5th Street Unit 4,323,S,5th,ST,4,323 S 5TH ST APT 4
+none-139-skillman-avenue-unit-7a-brooklyn-ny-11211,139 Skillman Avenue Unit 7A,139,,Skillman,AVE,7A,139 SKILLMAN AVE APT 7A
+none-145-conselyea-street-none-brooklyn-ny-11211,145 Conselyea Street NaN,145,,Conselyea,ST,,145 CONSELYEA ST
+none-30-devoe-street-unit-2b-brooklyn-ny-11211-0,30 Devoe Street Unit 2B,30,,Devoe,ST,2B,30 DEVOE ST APT 2B
+none-726-metropolitan-avenue-unit-6-williamsburg-ny-11211-0,726 Metropolitan Avenue Unit 6,726,,Metropolitan,AVE,6,726 METROPOLITAN AVE APT 6
+none-union-avenue-unit-206-brooklyn-ny-11211,Union Avenue Unit 206,,,Union,AVE,206,UNION AVE APT 206
+none-skillman-avenue-unit-1-brooklyn-ny-11211,Skillman Avenue Unit 1,,,Skillman,AVE,1,SKILLMAN AVE APT 1
+none-207-north-8th-street-unit-ph-brooklyn-ny-11211-0,207 North 8th Street Unit PH,207,N,8th,ST,,207 N 8TH ST
+none-150-north-5th-street-unit-1h-brooklyn-ny-11211-0,150 North 5th Street Unit 1H,150,N,5th,ST,1H,150 N 5TH ST APT 1H
+none-308-north-7th-street-unit-phb-brooklyn-ny-11211,308 North 7th Street Unit PHB,308,N,7th,ST,,308 N 7TH ST
+none-25-conselyea-street-unit-2-brooklyn-ny-11211,25 Conselyea Street Unit 2,25,,Conselyea,ST,2,25 CONSELYEA ST APT 2
+none-38-devoe-street-none-brooklyn-ny-11211,38 Devoe Street NaN,38,,Devoe,ST,,38 DEVOE ST
+none-234-powers-street-unit-6-williamsburg-ny-11211,234 Powers Street Unit 6,234,,Powers,ST,6,234 POWERS ST APT 6
+none-311-leonard-street-none-brooklyn-ny-11211,311 Leonard Street NaN,311,,Leonard,ST,,311 LEONARD ST
+none-76-richardson-street-unit-7-brooklyn-ny-11211,76 Richardson Street Unit 7,76,,Richardson,ST,7,76 RICHARDSON ST APT 7
+none-739-grand-street-none-brooklyn-ny-11211,739 Grand Street NaN,739,,Grand,ST,,739 GRAND ST
+none-38-skillman-avenue-unit-1-brooklyn-ny-11211,38 Skillman Avenue Unit 1,38,,Skillman,AVE,1,38 SKILLMAN AVE APT 1
+none-250-manhattan-avenue-unit-2r-brooklyn-ny-11211,250 Manhattan Avenue Unit 2R,250,,Manhattan,AVE,2R,250 MANHATTAN AVE APT 2R
+none-230-south-2nd-street-none-williamsburg-ny-11211,230 South 2nd Street NaN,230,S,2nd,ST,,230 S 2ND ST
+none-156-devoe-street-unit-1f-brooklyn-ny-11211,156 Devoe Street Unit 1F,156,,Devoe,ST,1F,156 DEVOE ST APT 1F
+none-170-south-1st-street-unit-2b-brooklyn-ny-11211,170 South 1st Street Unit 2B,170,S,1st,ST,2B,170 S 1ST ST APT 2B
+none-296-manhattan-avenue-none-brooklyn-ny-11211-0,296 Manhattan Avenue NaN,296,,Manhattan,AVE,,296 MANHATTAN AVE
+none-174-north-6th-street-unit-town-brooklyn-ny-11211,174 North 6th Street Unit TOWN,174,N,6th,ST,,174 N 6TH ST
+none-229-withers-street-unit-2d-brooklyn-ny-11211,229 Withers Street Unit 2D,229,,Withers,ST,2D,229 WITHERS ST APT 2D
+none-229-withers-street-unit-2b-brooklyn-ny-11211,229 Withers Street Unit 2B,229,,Withers,ST,2B,229 WITHERS ST APT 2B
+none-128-woodpoint-road-unit-1-brooklyn-ny-11211,128 Woodpoint Road Unit 1,128,,Woodpoint,,1,128 WOODPOINT APT 1
+none-30-devoe-street-unit-2b-brooklyn-ny-11211,30 Devoe Street Unit 2B,30,,Devoe,ST,2B,30 DEVOE ST APT 2B
+none-jackson-street-unit-ph-brooklyn-ny-11211,Jackson Street Unit PH,,,Jackson,ST,,JACKSON ST
+none-240-powers-street-unit-6-brooklyn-ny-11211,240 Powers Street Unit 6,240,,Powers,ST,6,240 POWERS ST APT 6
+none-40-skillman-avenue-unit-3b-brooklyn-ny-11211-0,40 Skillman Avenue Unit 3B,40,,Skillman,AVE,3B,40 SKILLMAN AVE APT 3B
+none-526-union-avenue-unit-206-brooklyn-ny-11211-0,526 Union Avenue Unit 206,526,,Union,AVE,206,526 UNION AVE APT 206
+none-550-metropolitan-avenue-unit-comm-brooklyn-ny-11211-0,550 Metropolitan Avenue Unit COMM,550,,Metropolitan,AVE,,550 METROPOLITAN AVE
+none-woodpoint-road-unit-5-brooklyn-ny-11211,Woodpoint Road Unit 5,,,Woodpoint,,5,WOODPOINT APT 5
+none-skillman-avenue-unit-2-brooklyn-ny-11211-0,Skillman Avenue Unit 2,,,Skillman,AVE,2,SKILLMAN AVE APT 2
+none-710-metropolitan-avenue-unit-5h-brooklyn-ny-11211,710 Metropolitan Avenue Unit 5H,710,,Metropolitan,AVE,5H,710 METROPOLITAN AVE APT 5H
+none-250-manhattan-avenue-unit-2r-brooklyn-ny-11211-0,250 Manhattan Avenue Unit 2R,250,,Manhattan,AVE,2R,250 MANHATTAN AVE APT 2R
+none-171-north-1st-street-unit-4k-brooklyn-ny-11211,171 North 1st Street Unit 4K,171,N,1st,ST,4K,171 N 1ST ST APT 4K
+none-38-skillman-avenue-unit-1-brooklyn-ny-11211-0,38 Skillman Avenue Unit 1,38,,Skillman,AVE,1,38 SKILLMAN AVE APT 1
+none-woodpoint-road-unit-1-brooklyn-ny-11211-0,Woodpoint Road Unit 1,,,Woodpoint,,1,WOODPOINT APT 1
+none-96-woodpoint-road-unit-2c-brooklyn-ny-11211-0,96 Woodpoint Road Unit 2C,96,,Woodpoint,,2C,96 WOODPOINT APT 2C
+none-390-broadway-none-brooklyn-ny-11211,390 Broadway NaN,390,w,Broadway NaN,,,390 W BROADWAY NAN
+none-72-richardson-street-unit-19-brooklyn-ny-11211-0,72 Richardson Street Unit 19,72,,Richardson,ST,19,72 RICHARDSON ST APT 19
+none-390-broadway-none-williamsburg-ny-11211-0,390 Broadway NaN,390,w,Broadway NaN,,,390 W BROADWAY NAN
+none-135-jackson-street-unit-1b-brooklyn-ny-11211-0,135 Jackson Street Unit 1B,135,,Jackson,ST,1B,135 JACKSON ST APT 1B
+none-bayard-street-unit-3g-brooklyn-ny-11211-0,Bayard Street Unit 3G,,,Bayard,ST,3G,BAYARD ST APT 3G
+none-north-11th-street-unit-5r-brooklyn-ny-11211-0,North 11th Street Unit 5R,,N,11th,ST,5R,N 11TH ST APT 5R
+none-manhattan-avenue-none-brooklyn-ny-11211-0,Manhattan Avenue NaN,,,Manhattan,AVE,,MANHATTAN AVE
+none-684-lorimer-street-none-brooklyn-ny-11211-0,684 Lorimer Street NaN,684,,Lorimer,ST,,684 LORIMER ST
+none-manhattan-avenue-unit-3f-brooklyn-ny-11211-0,Manhattan Avenue Unit 3F,,,Manhattan,AVE,3F,MANHATTAN AVE APT 3F
+none-25-conselyea-street-unit-1-brooklyn-ny-11211,25 Conselyea Street Unit 1,25,,Conselyea,ST,1,25 CONSELYEA ST APT 1
+none-bushwick-avenue-unit-7b-brooklyn-ny-11211-0,Bushwick Avenue Unit 7B,,,Bushwick,AVE,7B,BUSHWICK AVE APT 7B
+none-550-metropolitan-avenue-unit-comm-brooklyn-ny-11211,550 Metropolitan Avenue Unit COMM,550,,Metropolitan,AVE,,550 METROPOLITAN AVE
+none-446-humboldt-street-none-brooklyn-ny-11211,446 Humboldt Street NaN,446,,Humboldt,ST,,446 HUMBOLDT ST
+none-183-south-2nd-street-none-williamsburg-ny-11211,183 South 2nd Street NaN,183,S,2nd,ST,,183 S 2ND ST
+none-415-bedford-avenue-unit-23a-brooklyn-ny-11211,415 Bedford Avenue Unit 23A,415,,Bedford,AVE,23A,415 BEDFORD AVE APT 23A
+none-88-withers-street-unit-7d-brooklyn-ny-11211,88 Withers Street Unit 7D,88,,Withers,ST,7D,88 WITHERS ST APT 7D
+none-171-north-1st-street-unit-3k-brooklyn-ny-11211,171 North 1st Street Unit 3K,171,N,1st,ST,3K,171 N 1ST ST APT 3K
+none-980-metropolitan-avenue-none-williamsburg-ny-11211,980 Metropolitan Avenue NaN,980,,Metropolitan,AVE,,980 METROPOLITAN AVE
+none-72-richardson-street-unit-19-brooklyn-ny-11211,72 Richardson Street Unit 19,72,,Richardson,ST,19,72 RICHARDSON ST APT 19
+none-526-union-avenue-unit-206-brooklyn-ny-11211,526 Union Avenue Unit 206,526,,Union,AVE,206,526 UNION AVE APT 206
+none-549-metropolitan-avenue-unit-a-brooklyn-ny-11211,549 Metropolitan Avenue Unit A,549,,Metropolitan,AVE,,549 METROPOLITAN AVE
+none-224-north-6th-street-unit-3-brooklyn-ny-11211,224 North 6th Street Unit 3,224,N,6th,ST,3,224 N 6TH ST APT 3
+none-south-5th-street-unit-2-brooklyn-ny-11211-0,South 5th Street Unit 2,,S,5th,ST,2,S 5TH ST APT 2
+none-skillman-avenue-unit-1a-brooklyn-ny-11211-0,Skillman Avenue Unit 1A,,,Skillman,AVE,1A,SKILLMAN AVE APT 1A
+none-170-south-1st-street-unit-2b-brooklyn-ny-11211-0,170 South 1st Street Unit 2B,170,S,1st,ST,2B,170 S 1ST ST APT 2B
+none-237-devoe-street-unit-1r-brooklyn-ny-11211-0,237 Devoe Street Unit 1R,237,,Devoe,ST,1R,237 DEVOE ST APT 1R
+none-156-devoe-street-unit-1f-brooklyn-ny-11211-0,156 Devoe Street Unit 1F,156,,Devoe,ST,1F,156 DEVOE ST APT 1F
+none-230-south-2nd-street-none-brooklyn-ny-11211,230 South 2nd Street NaN,230,S,2nd,ST,,230 S 2ND ST
+none-100-maspeth-avenue-unit-7c-brooklyn-ny-11211,100 Maspeth Avenue Unit 7C,100,,Maspeth,AVE,7C,100 MASPETH AVE APT 7C
+none-bushwick-avenue-unit-2b-brooklyn-ny-11211-0,Bushwick Avenue Unit 2B,,,Bushwick,AVE,2B,BUSHWICK AVE APT 2B
+none-south-5th-street-unit-c2-brooklyn-ny-11211,South 5th Street Unit C2,,S,5th,ST,C2,S 5TH ST APT C2
+none-170-north-11th-street-unit-3a-brooklyn-ny-11211,170 North 11th Street Unit 3A,170,N,11th,ST,3A,170 N 11TH ST APT 3A
+none-171-north-1st-street-unit-1a-brooklyn-ny-11211,171 North 1st Street Unit 1A,171,N,1st,ST,1A,171 N 1ST ST APT 1A
+none-171-north-1st-street-unit-6d-brooklyn-ny-11211,171 North 1st Street Unit 6D,171,N,1st,ST,6D,171 N 1ST ST APT 6D
+none-jackson-street-unit-3b-brooklyn-ny-11211-0,Jackson Street Unit 3B,,,Jackson,ST,3B,JACKSON ST APT 3B
+none-224-north-6th-street-unit-3-brooklyn-ny-11211-0,224 North 6th Street Unit 3,224,N,6th,ST,3,224 N 6TH ST APT 3
+none-240-powers-street-unit-6-brooklyn-ny-11211-0,240 Powers Street Unit 6,240,,Powers,ST,6,240 POWERS ST APT 6
+none-739-grand-street-none-brooklyn-ny-11211-0,739 Grand Street NaN,739,,Grand,ST,,739 GRAND ST
+none-239-jackson-street-none-brooklyn-ny-11211,239 Jackson Street NaN,239,,Jackson,ST,,239 JACKSON ST
+none-139-jackson-street-unit-1b-brooklyn-ny-11211,139 Jackson Street Unit 1B,139,,Jackson,ST,1B,139 JACKSON ST APT 1B
+none-18-orient-avenue-none-brooklyn-ny-11211-0,18 Orient Avenue NaN,18,,Orient,AVE,,18 ORIENT AVE
+none-532-lorimer-street-unit-1b-williamsburg-ny-11211-0,532 Lorimer Street Unit 1B,532,,Lorimer,ST,1B,532 LORIMER ST APT 1B
+none-230-south-2nd-street-none-williamsburg-ny-11211-0,230 South 2nd Street NaN,230,S,2nd,ST,,230 S 2ND ST
+none-549-metropolitan-avenue-unit-a-brooklyn-ny-11211-0,549 Metropolitan Avenue Unit A,549,,Metropolitan,AVE,,549 METROPOLITAN AVE
+none-north-8th-street-none-brooklyn-ny-11211-0,North 8th Street NaN,,N,8th,ST,,N 8TH ST
+none-manhattan-avenue-unit-4f-brooklyn-ny-11211-0,Manhattan Avenue Unit 4F,,,Manhattan,AVE,4F,MANHATTAN AVE APT 4F
+none-skillman-avenue-unit-3-brooklyn-ny-11211-0,Skillman Avenue Unit 3,,,Skillman,AVE,3,SKILLMAN AVE APT 3
+none-jackson-street-unit-ph-brooklyn-ny-11211-0,Jackson Street Unit PH,,,Jackson,ST,,JACKSON ST
+none-230-south-2nd-street-none-brooklyn-ny-11211-0,230 South 2nd Street NaN,230,S,2nd,ST,,230 S 2ND ST
+none-north-8th-street-unit-ph-brooklyn-ny-11211-0,North 8th Street Unit PH,,N,8th,ST,,N 8TH ST
+none-153-south-4th-street-unit-5-brooklyn-ny-11211,153 South 4th Street Unit 5,153,S,4th,ST,5,153 S 4TH ST APT 5
+none-74-jackson-street-unit-3-brooklyn-ny-11211,74 Jackson Street Unit 3,74,,Jackson,ST,3,74 JACKSON ST APT 3
+none-devoe-street-unit-2r-brooklyn-ny-11211-0,Devoe Street Unit 2R,,,Devoe,ST,2R,DEVOE ST APT 2R
+none-lorimer-street-unit-1-brooklyn-ny-11211,Lorimer Street Unit 1,,,Lorimer,ST,1,LORIMER ST APT 1
+none-skillman-avenue-unit-3b-brooklyn-ny-11211,Skillman Avenue Unit 3B,,,Skillman,AVE,3B,SKILLMAN AVE APT 3B
+none-229-withers-street-unit-2a-brooklyn-ny-11211,229 Withers Street Unit 2A,229,,Withers,ST,2A,229 WITHERS ST APT 2A
+none-division-avenue-unit-16-brooklyn-ny-11211-0,Division Avenue Unit 16,,,Division,AVE,16,DIVISION AVE APT 16
+none-havemeyer-street-unit-6a-brooklyn-ny-11211-0,Havemeyer Street Unit 6A,,,Havemeyer,ST,6A,HAVEMEYER ST APT 6A
+none-329-grand-street-none-brooklyn-ny-11211-0,329 Grand Street NaN,329,,Grand,ST,,329 GRAND ST
+none-183-south-2nd-street-none-brooklyn-ny-11211-0,183 South 2nd Street NaN,183,S,2nd,ST,,183 S 2ND ST
+none-452-graham-avenue-none-brooklyn-ny-11211,452 Graham Avenue NaN,452,,Graham,AVE,,452 GRAHAM AVE
+none-360-south-3rd-street-none-brooklyn-ny-11211-0,360 South 3rd Street NaN,360,S,3rd,ST,,360 S 3RD ST
+none-devoe-street-none-brooklyn-ny-11211-0,Devoe Street NaN,,,Devoe,ST,,DEVOE ST
+none-skillman-avenue-unit-4f-brooklyn-ny-11211-0,Skillman Avenue Unit 4F,,,Skillman,AVE,4F,SKILLMAN AVE APT 4F
+none-80-roebling-street-unit-1-brooklyn-ny-11211-0,80 Roebling Street Unit 1,80,,Roebling,ST,1,80 ROEBLING ST APT 1
+none-250-manhattan-avenue-unit-4r-brooklyn-ny-11211,250 Manhattan Avenue Unit 4R,250,,Manhattan,AVE,4R,250 MANHATTAN AVE APT 4R
+none-maspeth-avenue-unit-2d-brooklyn-ny-11211-0,Maspeth Avenue Unit 2D,,,Maspeth,AVE,2D,MASPETH AVE APT 2D
+none-bayard-street-unit-3b-brooklyn-ny-11211-0,Bayard Street Unit 3B,,,Bayard,ST,3B,BAYARD ST APT 3B
+none-224-north-6th-street-unit-1-brooklyn-ny-11211,224 North 6th Street Unit 1,224,N,6th,ST,1,224 N 6TH ST APT 1
+none-bushwick-avenue-unit-5a-brooklyn-ny-11211,Bushwick Avenue Unit 5A,,,Bushwick,AVE,5A,BUSHWICK AVE APT 5A
+none-north-11th-street-unit-4w-brooklyn-ny-11211-0,North 11th Street Unit 4W,,N,11th,ST,4W,N 11TH ST APT 4W
+none-grand-street-none-brooklyn-ny-11211-0,Grand Street NaN,,,Grand,ST,,GRAND ST
+none-74-jackson-street-unit-2-brooklyn-ny-11211,74 Jackson Street Unit 2,74,,Jackson,ST,2,74 JACKSON ST APT 2
+none-maspeth-avenue-unit-7c-brooklyn-ny-11211,Maspeth Avenue Unit 7C,,,Maspeth,AVE,7C,MASPETH AVE APT 7C
+none-150-richardson-street-unit-2a-brooklyn-ny-11211,150 Richardson Street Unit 2A,150,,Richardson,ST,2A,150 RICHARDSON ST APT 2A
+none-30-bushwick-avenue-unit-3b-brooklyn-ny-11211,30 Bushwick Avenue Unit 3B,30,,Bushwick,AVE,3B,30 BUSHWICK AVE APT 3B
+none-179-jackson-street-unit-3a-brooklyn-ny-11211,179 Jackson Street Unit 3A,179,,Jackson,ST,3A,179 JACKSON ST APT 3A

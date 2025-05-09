@@ -17,22 +17,16 @@ class DatabaseConfig:
         """Returns a connection string for psycopg2."""
         return f"dbname={self.DB_NAME} user={self.DB_USER} password={self.DB_PASSWORD} host={self.DB_HOST} port={self.DB_PORT}"
 
-class APIConfig:
-    """External API configuration (mocked or real)."""
-    # If using a real API, add keys and endpoints here.
-    # For this example, we'll just have a flag for the mocked API.
-    USE_MOCKED_API = os.environ.get("USE_MOCKED_API", "True").lower() == "true"
-    # MOCKED_API_URL = "http://mocked-api.example.com/validate" # Example if needed
 
 # Instantiate config objects
 DB_CONFIG = DatabaseConfig()
-API_CONFIG = APIConfig()
 
 # Define input and output file paths
 DATA_DIR = "data"
+INPUT_DIR = os.path.join(DATA_DIR, "input")
 OUTPUT_DIR = os.path.join(DATA_DIR, "output")
-CANONICAL_ADDRESSES_CSV = os.path.join(DATA_DIR, "11211 Addresses.csv")
-TRANSACTIONS_CSV = os.path.join(DATA_DIR, "transactions_2_11211.csv")
+CANONICAL_ADDRESSES_CSV = os.path.join(INPUT_DIR, "11211 Addresses.csv")
+TRANSACTIONS_CSV = os.path.join(INPUT_DIR, "transactions_2_11211.csv")
 SIMULATED_TRANSACTIONS_CSV = os.path.join(OUTPUT_DIR, "simulated_transactions.csv") # Output for simulation
 FINAL_OUTPUT_CSV = os.path.join(OUTPUT_DIR, "output.csv")
 UNMATCHED_REPORT_CSV = os.path.join(OUTPUT_DIR, "unmatched_report.csv")

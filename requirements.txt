@@ -37,7 +37,6 @@ python-crfsuite==0.9.11
 python-dateutil==2.9.0.post0
 python-dotenv==1.1.0
 pytz==2025.2
-pywin32==310
 pyzmq==26.4.0
 RapidFuzz==3.13.0
 six==1.17.0

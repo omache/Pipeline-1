@@ -1,0 +1,36 @@
+services:
+  # Database service
+  db:
+    # Use a valid, existing tag from Docker Hub
+    image: postgis/postgis:16-3.4 # <-- Change this line back to a valid tag
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./sql:/app/sql # Assuming your schema is here
+      - ./data/input:/app/data/input # Mount input CSVs
+      - ./data/output:/app/data/output # Mount output directory
+
+  # Application service
+  app:
+    build: .
+    volumes:
+      - ./src:/app/src # Correctly mounts local src to container /app/src
+      - ./data/input:/app/data/input
+      - ./data/output:/app/data/output
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      # ... other env vars
+
+# Define the named volume
+volumes:
+  db_data:

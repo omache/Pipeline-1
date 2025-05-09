@@ -84,7 +84,7 @@ def parse_and_normalize_address(raw_address):
     if not raw_address or not isinstance(raw_address, str):
         return None
 
-    # Initialize result dictionary with empty values to avoid None issues later
+    # Initialize result dictionary with empty values
     result = {
         'street_name': '',
         'street_type': '',

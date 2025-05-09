@@ -56,7 +56,6 @@ def ensure_phonetic_columns_and_keys(conn, force_recompute_all=False):
             cur.execute("CREATE INDEX idx_canonical_soundex ON canonical_addresses (soundex_key);")
             conn.commit()
 
-        # Batch processing for better performance
         batch_size = 5000
         
         if force_recompute_all:
@@ -131,7 +130,7 @@ def perform_fallback_matching():
     logging.info("Starting fallback matching (phonetic).")
     conn = None
     updated_count = 0
-    batch_size = 5000  # Process in batches for better memory usage
+    batch_size = 50000  # Process in batches for better memory usage
 
     try:
         conn = get_db_connection()

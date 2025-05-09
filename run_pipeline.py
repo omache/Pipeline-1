@@ -1,6 +1,4 @@
 # run_pipeline.py
-# Top-level script to run the entire address matching pipeline
-# and collect performance metrics.
 
 import time
 import logging
@@ -15,7 +13,6 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src'
 from src import ingest, parse, match, fallback, report, simulate_data
 from src.config import DB_CONFIG, SIMULATED_TRANSACTIONS_CSV, TRANSACTIONS_CSV
 
-# Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # --- Helper function to check database connection ---
@@ -45,11 +42,9 @@ def run_step(step_name, step_function, *args, **kwargs):
         return duration
     except Exception as e:
         logging.error(f"--- Step Failed: {step_name} with error: {e} ---")
-        # Depending on requirements, you might want to exit or continue
-        sys.exit(1) # Exit on critical step failure
+        sys.exit(1) 
 
 # --- Function to run the full pipeline ---
-# @profile # Uncomment this line to profile memory of this function (might add overhead)
 def run_full_pipeline(use_simulated_data=False):
     """Runs the full address matching pipeline."""
     logging.info("--- Running Full Address Matching Pipeline ---")
@@ -64,6 +59,8 @@ def run_full_pipeline(use_simulated_data=False):
     transactions_input_csv = SIMULATED_TRANSACTIONS_CSV if use_simulated_data else TRANSACTIONS_CSV
     if use_simulated_data and not os.path.exists(transactions_input_csv):
         logging.warning(f"Simulated data file not found at {transactions_input_csv}. Running simulation first.")
+        # Note: Simulation is included in the total runtime measurement here,
+        # even though the log message excludes it. Adjust as needed.
         run_step("Data Simulation", simulate_data.simulate_large_transactions_csv)
         # Re-check if file exists after simulation
         if not os.path.exists(transactions_input_csv):
@@ -72,15 +69,20 @@ def run_full_pipeline(use_simulated_data=False):
 
 
     # Step 1: Ingestion
-    # Optional: Clear existing data before ingestion for a clean run
     logging.info("Clearing existing data before ingestion...")
-    conn = ingest.get_db_connection()
-    cur = conn.cursor()
-    cur.execute("DELETE FROM transactions;")
-    cur.execute("DELETE FROM canonical_addresses;")
-    conn.commit()
-    conn.close()
-    logging.info("Existing data cleared.")
+    try:
+        conn = ingest.get_db_connection()
+        cur = conn.cursor()
+        cur.execute("DELETE FROM transactions;")
+        cur.execute("DELETE FROM canonical_addresses;")
+        conn.commit()
+        conn.close()
+        logging.info("Existing data cleared.")
+    except Exception as e:
+        logging.error(f"Error clearing data: {e}")
+        # Decide if this is a fatal error or if you can continue
+        sys.exit(1)
+
 
     total_runtime += run_step("Ingest Canonical Addresses", ingest.ingest_canonical_addresses)
     total_runtime += run_step("Ingest Transactions", ingest.ingest_transactions, csv_path=transactions_input_csv) # Use selected CSV
@@ -91,7 +93,6 @@ def run_full_pipeline(use_simulated_data=False):
     # Step 3: Matching
     total_runtime += run_step("Exact Matching", match.perform_exact_matching)
     total_runtime += run_step("Fuzzy Matching", match.perform_fuzzy_matching)
-    # If phonetic matching is a separate step before fallback:
     # total_runtime += run_step("Phonetic Matching", match.perform_phonetic_matching)
 
 
@@ -106,20 +107,38 @@ def run_full_pipeline(use_simulated_data=False):
     logging.info("--- Pipeline Execution Completed ---")
     logging.info(f"Total Pipeline Runtime (excluding simulation if run separately): {total_runtime:.2f} seconds")
 
-    # Placeholder for Peak Memory and Cost Reporting
     logging.info("\n--- Performance Metrics ---")
     logging.info(f"Total Runtime: {total_runtime:.2f} seconds")
-    logging.info("Peak Memory: [Monitor using OS tools or memory_profiler]")
-    logging.info("Approximate Cost (if using real API): [Estimate based on API calls]")
+    logging.info("Peak Memory: Run script with '--profile-memory' flag to measure using memory_profiler.")
     logging.info("---------------------------")
 
 
 if __name__ == "__main__":
-    use_simulated_data = '--simulate' in sys.argv
-    if use_simulated_data:
-        logging.info("Running pipeline with simulated large dataset.")
-        run_full_pipeline(use_simulated_data=True)
-    else:
-        logging.info("Running pipeline with original small dataset.")
-        run_full_pipeline(use_simulated_data=False)
+    if '--profile-memory' in sys.argv:
+        args_for_subprocess = [arg for arg in sys.argv[1:] if arg != '--profile-memory']
 
+        logging.info("Running script under memory_profiler...")
+        command = [sys.executable, "-m", "memory_profiler", __file__] + args_for_subprocess
+        try:
+            result = subprocess.run(command, check=True, capture_output=False)
+            logging.info("memory_profiler finished.")
+        except FileNotFoundError:
+            logging.error("Error: 'python -m memory_profiler' command failed.")
+            logging.error("Please ensure 'memory_profiler' is installed (`pip install memory-profiler`) and Python is in your PATH.")
+            sys.exit(1)
+        except subprocess.CalledProcessError as e:
+            logging.error(f"Error during memory profiling: Subprocess returned non-zero exit code {e.returncode}")
+            sys.exit(e.returncode)
+        except Exception as e:
+            logging.error(f"An unexpected error occurred during subprocess execution: {e}")
+            sys.exit(1)
+
+    else:
+        # Normal execution path
+        use_simulated_data = '--simulate' in sys.argv
+        if use_simulated_data:
+            logging.info("Running pipeline with simulated large dataset.")
+            run_full_pipeline(use_simulated_data=True)
+        else:
+            logging.info("Running pipeline with original small dataset.")
+            run_full_pipeline(use_simulated_data=False)

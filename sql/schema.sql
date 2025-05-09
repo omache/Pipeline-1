@@ -76,23 +76,6 @@ CREATE TABLE transactions (
 );
 
 
--- Indexes for canonical_addresses table
-CREATE INDEX idx_canonical_zip ON canonical_addresses (zip);
-CREATE INDEX idx_canonical_city ON canonical_addresses (city);
-CREATE INDEX idx_canonical_street ON canonical_addresses (street); -- Index on the street name
-
--- Indexes for transactions table (formerly property_listings)
-CREATE INDEX idx_transactions_status ON transactions (status);
-CREATE INDEX idx_transactions_price ON transactions (price);
-CREATE INDEX idx_transactions_city ON transactions (city);
-CREATE INDEX idx_transactions_zip_code ON transactions (zip_code);
-CREATE INDEX idx_transactions_property_type ON transactions (property_type);
-CREATE INDEX idx_transactions_email ON transactions (email);
-CREATE INDEX idx_transactions_list_date ON transactions (list_date);
-CREATE INDEX idx_transactions_pending_date ON transactions (pending_date);
--- Add indexes for address components in transactions as they'll be used for matching lookup
-CREATE INDEX idx_transactions_address1 ON transactions (address_line_1);
-CREATE INDEX idx_transactions_address2 ON transactions (address_line_2);
 
 
 -- Composite indexes for potential lookups
@@ -103,6 +86,16 @@ CREATE INDEX idx_canonical_full_address_comp ON canonical_addresses (
 CREATE INDEX idx_transactions_address_comp ON transactions (
     address_line_1, address_line_2, city, state, zip_code
 );
+CREATE INDEX idx_transactions_normalized_address ON transactions (normalized_address);
+
+CREATE INDEX idx_canonical_address ON canonical_addresses (address);
+CREATE INDEX idx_transactions_matched_address_id ON transactions (matched_address_id);
+
+CREATE INDEX IF NOT EXISTS idx_canonical_address_gin_trgm 
+ON canonical_addresses USING GIN (address gin_trgm_ops);
+
+CREATE INDEX idx_canonical_addresses_address_id ON canonical_addresses(address_id);
+
 
 -- Add a spatial index for the geography column in transactions (recommended for PostGIS)
 CREATE INDEX idx_transactions_geog ON transactions USING GIST (geog);

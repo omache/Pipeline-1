@@ -5,13 +5,13 @@ import csv
 import logging
 import psycopg2
 from src.database import get_db_connection, close_db_connection
+from psycopg2.extras import execute_batch # Import execute_batch
+
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Regex patterns for address parsing - using abbreviated street types
 street_number_pattern = r'(\d+)'
-street_name_pattern = r'([a-zA-Z\s]+)' # Consider making this less greedy or more specific if issues arise
-# Modified to use abbreviated street types
+street_name_pattern = r'([a-zA-Z\s]+)' 
 street_type_pattern = r'(ST|AVE|BLVD|RD|LN|CT|DR|PL|WAY|TER|CIR|Street|Avenue|Boulevard|Road|Lane|Court|Drive|Place|Way|Terrace|Circle)'
 # New pattern for directionals
 directional_pattern = r'(N|S|E|W|NE|NW|SE|SW|NORTH|SOUTH|EAST|WEST|NORTHEAST|NORTHWEST|SOUTHEAST|SOUTHWEST)'
@@ -221,6 +221,7 @@ def parse_all_transactions():
     output_file = 'data/output/parsed_data.csv'
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
+    # ... (CSV header and initial setup) ...
     csv_rows = []
     csv_header = ['id', 'raw_address', 'parsed_street_number', 'parsed_pre_directional', 'parsed_street_name', 'parsed_street_suffix', 'parsed_unit', 'normalized_address']
     csv_rows.append(csv_header)
@@ -228,10 +229,10 @@ def parse_all_transactions():
     try:
         conn = get_db_connection()
         ensure_address_columns_exist(conn)
-        
+
         select_cur = conn.cursor()
         update_cur = conn.cursor()
-        
+
         select_cur.execute("""
             SELECT id, address_line_1, address_line_2
             FROM transactions
@@ -239,10 +240,11 @@ def parse_all_transactions():
             OR unmatch_reason = 'failed parse';
         """)
 
-        batch_size = 5000
+        batch_size = 5000 # Experiment with this value
         processed_count = 0
         updated_count = 0
-        
+        update_data = [] # List to hold data for batch updates
+
         while True:
             batch = select_cur.fetchmany(batch_size)
             if not batch:
@@ -253,84 +255,95 @@ def parse_all_transactions():
             for id, address_line_1, address_line_2 in batch:
                 full_address = f"{address_line_1 or ''} {address_line_2 or ''}".strip()
 
+                parsed_components = None # Initialize to None
+
                 if not full_address:
                     logging.warning(f"Skipping parsing for transaction {id} due to empty address.")
                     unmatch_reason = "empty address"
-                    update_cur.execute("""
-                        UPDATE transactions
-                        SET parsed_street_number = '',
-                            parsed_street_name = '',
-                            parsed_street_suffix = '',
-                            parsed_pre_directional = '',
-                            parsed_unit = '',
-                            normalized_address = '',
-                            unmatch_reason = %s
-                        WHERE id = %s
-                    """, (unmatch_reason, id))
-                    
-                    csv_rows.append([id, full_address, '', '', '', '', '', ''])
-                    processed_count += 1
-                    continue
-
-                parsed_components = parse_and_normalize_address(full_address)
-
-                if parsed_components:
-                    update_cur.execute("""
-                        UPDATE transactions
-                        SET parsed_street_number = %s,
-                            parsed_street_name = %s,
-                            parsed_street_suffix = %s,
-                            parsed_pre_directional = %s,
-                            parsed_unit = %s, 
-                            normalized_address = %s,
-                            unmatch_reason = NULL
-                        WHERE id = %s
-                    """, (
-                        parsed_components['street_number'] or '',
-                        parsed_components['street_name'] or '',
-                        parsed_components['street_type'] or '',
-                        parsed_components['pre_directional'] or '',
-                        parsed_components['unit'] or '',
-                        parsed_components['normalized_address'] or '',
-                        id
+                    update_data.append((
+                        '', '', '', '', '', '', unmatch_reason, id
                     ))
-                    updated_count += 1
-                    
-                    csv_rows.append([
-                        id,
-                        full_address,
-                        parsed_components['street_number'] or '',
-                        parsed_components['pre_directional'] or '',
-                        parsed_components['street_name'] or '',
-                        parsed_components['street_type'] or '',
-                        parsed_components['unit'] or '',
-                        parsed_components['normalized_address'] or ''
-                    ])
-                else:
-                    unmatch_reason = "failed parse (invalid input)" 
-                    update_cur.execute("""
-                        UPDATE transactions
-                        SET parsed_street_number = '',
-                            parsed_street_name = '',
-                            parsed_street_suffix = '',
-                            parsed_pre_directional = '',
-                            parsed_unit = '',
-                            normalized_address = '',
-                            unmatch_reason = %s
-                        WHERE id = %s
-                    """, (unmatch_reason, id))
-                    
                     csv_rows.append([id, full_address, '', '', '', '', '', ''])
-                
-                processed_count += 1
-                
-                if processed_count % 1000 == 0:
-                    conn.commit()
-                    logging.info(f"Committed batch. Total processed: {processed_count}, Updated: {updated_count}")
+                else:
+                    parsed_components = parse_and_normalize_address(full_address)
 
-        conn.commit()
+                    if parsed_components:
+                         update_data.append((
+                            parsed_components['street_number'] or '',
+                            parsed_components['street_name'] or '',
+                            parsed_components['street_type'] or '',
+                            parsed_components['pre_directional'] or '',
+                            parsed_components['unit'] or '',
+                            parsed_components['normalized_address'] or '',
+                            None, # unmatch_reason is NULL on success
+                            id
+                        ))
+                         csv_rows.append([
+                            id,
+                            full_address,
+                            parsed_components['street_number'] or '',
+                            parsed_components['pre_directional'] or '',
+                            parsed_components['street_name'] or '',
+                            parsed_components['street_type'] or '',
+                            parsed_components['unit'] or '',
+                            parsed_components['normalized_address'] or ''
+                        ])
+                         updated_count += 1
+                    else:
+                        unmatch_reason = "failed parse (invalid input)"
+                        update_data.append((
+                            '', '', '', '', '', '', unmatch_reason, id
+                        ))
+                        csv_rows.append([id, full_address, '', '', '', '', '', ''])
+
+                processed_count += 1
+
+            # Execute batch update after processing the batch
+            if update_data:
+                logging.info(f"Executing batch update for {len(update_data)} rows.")
+                execute_batch(
+                    update_cur,
+                    """
+                    UPDATE transactions
+                    SET parsed_street_number = %s,
+                        parsed_street_name = %s,
+                        parsed_street_suffix = %s,
+                        parsed_pre_directional = %s,
+                        parsed_unit = %s,
+                        normalized_address = %s,
+                        unmatch_reason = %s
+                    WHERE id = %s;
+                    """,
+                    update_data
+                )
+                conn.commit()
+                logging.info(f"Committed batch. Total processed: {processed_count}, Updated: {updated_count}")
+                update_data = [] # Clear the batch data list
+
+        # Commit any remaining updates if the last batch was smaller than batch_size
+        if update_data:
+             logging.info(f"Executing final batch update for {len(update_data)} rows.")
+             execute_batch(
+                update_cur,
+                """
+                UPDATE transactions
+                SET parsed_street_number = %s,
+                    parsed_street_name = %s,
+                    parsed_street_suffix = %s,
+                    parsed_pre_directional = %s,
+                    parsed_unit = %s,
+                    normalized_address = %s,
+                    unmatch_reason = %s
+                WHERE id = %s;
+                """,
+                update_data
+            )
+             conn.commit()
+             logging.info(f"Committed final batch. Total processed: {processed_count}, Updated: {updated_count}")
+
+
         logging.info("Parsing complete. Writing results to CSV.")
-        
+
         with open(output_file, 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerows(csv_rows)

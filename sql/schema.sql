@@ -1,7 +1,12 @@
 -- Drop tables, using CASCADE to handle dependencies
 -- Start by dropping tables that might have dependencies or are being removed
-DROP TABLE IF EXISTS transactions CASCADE; -- Explicitly drop the table you want to create/rename
+DROP TABLE IF EXISTS transactions CASCADE;
 DROP TABLE IF EXISTS canonical_addresses CASCADE;
+
+-- Enable the PostGIS extension if it's not already enabled
+-- You need superuser privileges for this command
+CREATE EXTENSION IF NOT EXISTS postgis;
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
 
 -- Create the table for canonical addresses
@@ -25,7 +30,7 @@ CREATE TABLE canonical_addresses (
     state VARCHAR(100), -- Matching 'state' header
     zip VARCHAR(20), -- Matching 'zip' header
     latitude FLOAT, -- Matching 'latitude' header
-    longitude FLOAT, -- Matching 'longitude' header
+    longitude FLOAT, -- Matching 'longitude' interested
     homeownercd VARCHAR(50), -- Assuming homeowner code is a string
 
     -- Retaining a primary key, though not explicitly in the 'Address' headers
@@ -38,19 +43,19 @@ CREATE TABLE transactions (
     -- Matching 'transactions' headers:
     id VARCHAR(255) PRIMARY KEY, -- Using 'id' as primary key based on header
     status VARCHAR(50),
-    price NUMERIC(15, 2),    -- Changed from DECIMAL to NUMERIC for better compatibility
-    bedrooms NUMERIC,        -- Changed from INT to NUMERIC to handle potential large values
-    bathrooms NUMERIC,       -- Changed from INT to NUMERIC to handle potential large values
-    square_feet NUMERIC,     -- Changed from INT to NUMERIC to handle potential large values
+    price NUMERIC(15, 2),       -- Changed from DECIMAL to NUMERIC for better compatibility
+    bedrooms NUMERIC,           -- Changed from INT to NUMERIC to handle potential large values
+    bathrooms NUMERIC,          -- Changed from INT to NUMERIC to handle potential large values
+    square_feet NUMERIC,        -- Changed from INT to NUMERIC to handle potential large values
     address_line_1 VARCHAR(255),
     address_line_2 VARCHAR(255),
     city VARCHAR(100),
     state VARCHAR(100),
     zip_code VARCHAR(20),
     property_type VARCHAR(50),
-    year_built NUMERIC,      -- Changed from INT to NUMERIC to handle potential large values
+    year_built NUMERIC,         -- Changed from INT to NUMERIC to handle potential large values
     presented_by TEXT, -- Using TEXT as the format of 'presented_by' isn't specified (could be full name)
-    brokered_by TEXT,  -- Using TEXT for broker information
+    brokered_by TEXT,   -- Using TEXT for broker information
     presented_by_mobile VARCHAR(50), -- Assuming mobile number is a string
     mls VARCHAR(100), -- Assuming MLS identifier is a string
     listing_office_id VARCHAR(255), -- Assuming office ID is a string
@@ -66,7 +71,7 @@ CREATE TABLE transactions (
     presented_by_first_name VARCHAR(100), -- Matching header
     presented_by_last_name VARCHAR(100),  -- Matching header
     presented_by_middle_name VARCHAR(100), -- Matching header
-    presented_by_suffix VARCHAR(10),    -- Matching header
+    presented_by_suffix VARCHAR(10),      -- Matching header
     geog GEOMETRY(Point, 4326) -- Geospatial column for the property location (using PostGIS)
 );
 
@@ -98,3 +103,6 @@ CREATE INDEX idx_canonical_full_address_comp ON canonical_addresses (
 CREATE INDEX idx_transactions_address_comp ON transactions (
     address_line_1, address_line_2, city, state, zip_code
 );
+
+-- Add a spatial index for the geography column in transactions (recommended for PostGIS)
+CREATE INDEX idx_transactions_geog ON transactions USING GIST (geog);

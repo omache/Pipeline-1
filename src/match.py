@@ -1,12 +1,9 @@
 # src/match.py
 
 from src.database import get_db_connection, close_db_connection
-from src.config import FUZZY_MATCH_THRESHOLD # This line imports the threshold
+from src.config import FUZZY_MATCH_THRESHOLD
 import logging
 import psycopg2.extras
-# Removed rapidfuzz and jellyfish imports as they are not used in the provided code snippets
-# from rapidfuzz import fuzz # Using RapidFuzz for potentially better performance
-# import jellyfish # For phonetic matching
 
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -21,8 +18,7 @@ def setup_matching_indexes():
         conn = get_db_connection()
         cur = conn.cursor()
 
-        # Check if the pg_trgm extension is available, install if necessary (requires superuser privileges)
-        # In a production environment, you might want to ensure this is handled by migration scripts
+        # Double Check if the pg_trgm extension is available, install if necessary (requires superuser privileges)
         try:
              cur.execute("CREATE EXTENSION IF NOT EXISTS pg_trgm;")
              conn.commit()
@@ -40,7 +36,7 @@ def setup_matching_indexes():
         conn.commit()
         logging.info("Created GIN index on transactions.normalized_address if it didn't exist.")
 
-        # You might also want an index on canonical_addresses.address
+        # You might also want an index on canonical_addresses.address (Later added to the schema, but adding this just incase)
         index_canonical_query = """
         CREATE INDEX IF NOT EXISTS idx_canonical_addresses_address_gin_trgm
         ON canonical_addresses USING GIN (address gin_trgm_ops);
@@ -49,7 +45,7 @@ def setup_matching_indexes():
         conn.commit()
         logging.info("Created GIN index on canonical_addresses.address if it didn't exist.")
 
-        # An index for exact matches could also be useful
+        # An index for exact matches (Added this directly to the schema)
         index_exact_query_transactions = """
         CREATE INDEX IF NOT EXISTS idx_transactions_normalized_address
         ON transactions (normalized_address);
@@ -167,9 +163,6 @@ def perform_exact_matching():
         conn.commit()
         logging.info(f"Marked {marked_unmatched_count} records as no exact match found.")
 
-        # Note: To get the *total* number of unmatched records *after* this step,
-        # you would need a separate SELECT COUNT query. The previous log shows
-        # only those newly marked by THIS update statement.
 
     except psycopg2.Error as e:
         logging.error(f"Database error during exact matching: {e}")
@@ -193,7 +186,6 @@ def perform_fuzzy_matching():
 
     Updates the transactions table for successful matches.
     """
-    # Note: The fuzzy match threshold comes from config, ensure FUZZY_MATCH_THRESHOLD is defined there.
     logging.info(f"Starting fuzzy matching (Prefix Blocking Only) with confidence threshold: {FUZZY_MATCH_THRESHOLD}")
 
     conn = None
@@ -201,7 +193,6 @@ def perform_fuzzy_matching():
         conn = get_db_connection()
         cur = conn.cursor()
 
-        # Check for existence of normalized_address is handled by the query WHERE clause.
 
         # Get total unmatched transactions count for statistics BEFORE fuzzy matching
         cur.execute("""
@@ -212,7 +203,7 @@ def perform_fuzzy_matching():
         logging.info(f"Starting fuzzy matching with {unmatched_count_before} unmatched transactions")
 
         # --- BLOCKING STRATEGY 1: Address Prefix (First N characters, using 10 as in original) ---
-        # Requires pg_trgm extension and GIN indexes on normalized_address and address.
+        # Uses pg_trgm extension and GIN indexes on normalized_address and address.
         # The confidence score calculation (average of similarity and word_similarity) is specific
         # to pg_trgm functions.
         fuzzy_match_prefix_query = """
@@ -258,7 +249,6 @@ def perform_fuzzy_matching():
         conn.commit()
         logging.info(f"Prefix blocking fuzzy matching completed. Matched {matched_prefix_count} records.")
 
-        # --- Removed: Blocking Strategy 2 (Street Name) and Fallback Strategy ---
 
         # Mark records that couldn't be matched after the prefix attempt
         unmatch_query = """
@@ -315,14 +305,8 @@ if __name__ == "__main__":
 
         # --- Perform matching strategies in order ---
         perform_exact_matching()
-        # You might want to log how many records are still unmatched here before fuzzy matching
-        # perform_fuzzy_matching()
-        # You might want to log how many records are still unmatched here after fuzzy matching
 
         logging.info("Matching script finished.")
-        # Note: The total counts of matched records across all strategies will need
-        # to be calculated by querying the database after all steps are run,
-        # or by accumulating counts returned by the functions.
 
     except Exception as e:
         logging.error(f"Matching script failed: {e}")

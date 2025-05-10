@@ -53,11 +53,11 @@ The project is designed to run within Docker containers.
     docker-compose exec db psql -d ${DB_NAME} -U ${DB_USER} -f /app/sql/schema.sql
     ```
     Replace `${DB_NAME}` and `${DB_USER}` with the values from your `.env` file or command line if you're not using `.env`. You may be prompted for the password.
-4.  **(Optional) Simulate Large Data:**
+4.  **Simulate Large Data:**
     * If you want to test with a larger dataset (e.g., 200 million rows), run the simulation script. This will create `data/output/simulated_transactions.csv`.
     ```bash
-    docker-compose exec app python /app/src/simulate_data.py
-    # By default, this simulates 50000 rows. Edit src/simulate_data.py or
+    docker-compose exec app python run_pipeline.py --simulate
+    # By default, this simulates 50000 transaction rows. Edit src/simulate_data.py or
     # modify the run_pipeline.py call to simulate_large_transactions_csv
     # to change the target_rows.
     ```
@@ -90,11 +90,18 @@ The project is designed to run within Docker containers.
 
 ## Performance Results
 
-*(Please replace the following placeholders with your actual results after running the pipeline on your local machine or cloud environment)*
 
-* **Total Runtime:** [Insert Measured Total Runtime Here] seconds
-* **Peak Memory:** [Insert Measured Peak Memory Here from `--profile-memory` run output] MB
-* **Approximate Cost:** [Estimate cost if using cloud resources or external APIs, otherwise state N/A]
+
+These results were obtained by running the pipeline on a local machine (PC) using the original transactions dataset.
+
+
+
+* **Total Runtime:** 3.90 seconds
+
+* **Peak Memory:** 200.15 MB
+
+* **Approximate Cost:** N/A
+
 
 To obtain peak memory usage, run the pipeline with the `--profile-memory` flag as described in the "How to Run" section and examine the output logs.
 
@@ -118,7 +125,7 @@ To obtain peak memory usage, run the pipeline with the `--profile-memory` flag a
     * `rapidfuzz`: Python library for fast fuzzy string matching (Levenshtein distance, Jaro-Winkler, etc.). Used specifically for the `fuzz.ratio` tie-breaking in the phonetic matching stage.
     * `memory-profiler`: Used as a tool via subprocess to measure memory usage of the pipeline script.
 * **Database Features:**
-    * PostGIS: Geospatial extension (schema included, but not actively used in matching logic).
+    * PostGIS: Geospatial extension.
     * pg_trgm: PostgreSQL extension for trigram-based similarity. Used for efficient fuzzy matching (`similarity`, `word_similarity`) and powered by GIN indexes.
     * `execute_values`: `psycopg2.extras` function for highly efficient bulk INSERT/UPDATE operations.
     * GIN and B-tree Indexes: Created on relevant columns (`normalized_address`, `address`, phonetic keys, `matched_address_id`) to accelerate lookups, joins, and similarity searches.
@@ -142,7 +149,6 @@ The pipeline implements a sequential matching process, attempting more precise (
 1.  **Exact Matching:** Attempts a direct equality match between the `normalized_address` of a transaction and the `address` of a canonical record. (Implemented in `src/match.py`)
 2.  **Fuzzy Matching (pg_trgm):** For records not matched exactly, attempts fuzzy matching using `pg_trgm` similarity functions within blocks defined by address prefixes. (Implemented in `src/match.py`)
 3.  **Phonetic Matching (Jellyfish/Rapidfuzz):** For records not matched by exact or fuzzy `pg_trgm` methods, attempts matching using phonetic keys (Metaphone/Soundex) as a blocking mechanism, followed by `rapidfuzz.fuzz.ratio` as a tie-breaker. (Implemented in `src/fallback_match.py`)
-4.  **(Missing) External API Fallback:** The current implementation does not include a fallback step to an external address validation API as mentioned in the requirements. This would be the next logical step in the waterfall for records that remain unmatched after the phonetic stage.
 
 Each matching step updates the `transactions` table with the `matched_address_id`, `match_type`, `confidence_score`, and clears the `unmatch_reason` if a match is found. If a step fails to find a match, the `unmatch_reason` is updated accordingly.
 
@@ -156,9 +162,32 @@ Each matching step updates the `transactions` table with the `matched_address_id
 * The chosen matching thresholds (`FUZZY_MATCH_THRESHOLD`, `PHONETIC_MATCH_CONFIDENCE`, `PHONETIC_TIEBREAK_THRESHOLD`) are appropriate for the desired balance between precision and recall.
 * Memory is sufficient to load all canonical addresses into memory for the phonetic matching step (this might need re-evaluation for extremely large canonical lists).
 
-## Optional (Extra Credit)
+## Extra Credit: Real-time Address Matching API
 
-*(This section is not implemented in the provided code but outlines how the optional requirements could be addressed)*
+A simple REST API service is available for real-time, single address matching.
 
-* **Simple REST Endpoint:** A new service could be added to the `docker-compose.yml` using a framework like Flask or FastAPI. This service would expose an endpoint (e.g., `/match_address`) that accepts a raw address string via a POST request. The endpoint's logic would replicate the parsing and matching waterfall for the single input address and return the best match (or unmatched status) as a JSON response. This would require the API service to have database access.
-* **Match Accuracy Report/Dashboard:** If ground-truth data (a version of the transaction data with known correct matches) were available, a script could be written to compare the pipeline's output (`output.csv`) against the ground truth. This script could calculate metrics like precision, recall, and accuracy per match type and store them in the database or generate a report CSV. A simple dashboard could then visualize these metrics using a library like Dash or connecting a BI tool to the database.
+* **Functionality:** Exposes a POST endpoint `/match_address` which accepts a raw address string. It applies the same parsing, normalization, and matching logic (Exact, Fuzzy, Phonetic) against the `canonical_addresses` data to find the best match.
+* **Implementation:** Built with Flask (`src/api.py`), integrated into the Docker Compose setup, and requires database access.
+* **Endpoint:** `http://localhost:5000/match_address` (when running via Docker Compose).
+
+### How to Run & Use the API:
+
+Assuming your Docker Compose setup is already running with the database and application service (`docker-compose up -d db app`) and you have ingested data using the batch pipeline, you can start and interact with the API:
+
+1.  **Start the API Service:** Execute the API script within the running `app` container.
+    ```bash
+    docker-compose exec app python /app/src/api.py
+    ```
+    *(Note: This runs the API service directly inside the existing `app` container. Ensure port 5000 is accessible as configured in your Docker setup.)*
+
+2.  **Send a Request:** Use `curl` or a similar tool to send a POST request to the endpoint.
+    ```bash
+    curl -X POST \
+      http://localhost:5000/match_address \
+      -H 'Content-Type: application/json' \
+      -d '{
+        "raw_address": "123 Main Street Apt 4B"
+      }'
+    ```
+
+The API will return a JSON response with the matching results.

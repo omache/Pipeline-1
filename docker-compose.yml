@@ -18,6 +18,7 @@ services:
   # Application service
   app:
     build: .
+    command: tail -f /dev/null # <--- Add this line to keep the container running
     volumes:
       - ./src:/app/src # Correctly mounts local src to container /app/src
       - ./data/input:/app/data/input
@@ -25,7 +26,7 @@ services:
     depends_on:
       - db
     environment:
-      DB_HOST: db
+      DB_HOST: db # Use 'db' as the hostname because that's the service name in docker-compose
       DB_NAME: ${DB_NAME}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}

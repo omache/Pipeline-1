@@ -5,7 +5,6 @@ import jellyfish
 from rapidfuzz import fuzz
 from functools import lru_cache
 
-# Assuming these are in src.database and src.config as in match.py
 from src.database import get_db_connection, close_db_connection
 from src.config import PHONETIC_MATCH_CONFIDENCE, PHONETIC_TIEBREAK_THRESHOLD
 
@@ -263,7 +262,7 @@ def perform_fallback_matching():
                     
                     # Mark remaining as unmatched
                     if processed_transaction_ids:
-                        # Use IN clause with array for better performance with large lists
+                        # We use IN clause with array for better performance with large lists
                         final_unmatch_query = """
                         UPDATE transactions
                         SET unmatch_reason = 'no phonetic match found'

@@ -1,17 +1,14 @@
 # src/simulate_data.py
-# Script to simulate a large transaction dataset by duplicating existing data
-# using a memory-efficient chunked writing approach.
 
 import pandas as pd
 import os
 import logging
-# Assuming TRANSACTIONS_CSV, SIMULATED_TRANSACTIONS_CSV are defined in src.config
-# OUTPUT_DIR is implicitly part of SIMULATED_TRANSACTIONS_CSV path
+
 from src.config import TRANSACTIONS_CSV, SIMULATED_TRANSACTIONS_CSV
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-def simulate_large_transactions_csv(target_rows=50000, input_csv_path=TRANSACTIONS_CSV, output_csv_path=SIMULATED_TRANSACTIONS_CSV):
+def simulate_large_transactions_csv(target_rows=25000, input_csv_path=TRANSACTIONS_CSV, output_csv_path=SIMULATED_TRANSACTIONS_CSV):
     logging.info(f"Starting data simulation (memory-efficient chunked writing) to reach approximately {target_rows} rows.")
 
     try:
@@ -38,7 +35,7 @@ def simulate_large_transactions_csv(target_rows=50000, input_csv_path=TRANSACTIO
 
         if original_rows >= target_rows:
             logging.warning(f"Original CSV ({input_csv_path}) already has {original_rows} rows, which is >= target {target_rows}. Copying original file to {output_csv_path}.")
-            df_small.to_csv(output_csv_path, index=False, mode='w') # mode='w' to overwrite
+            df_small.to_csv(output_csv_path, index=False, mode='w')
             logging.info(f"Copied original CSV to {output_csv_path}")
             return
 
@@ -58,7 +55,7 @@ def simulate_large_transactions_csv(target_rows=50000, input_csv_path=TRANSACTIO
             
             if rows_written_total + rows_in_current_chunk > target_rows:
                 rows_needed = target_rows - rows_written_total
-                temp_df = temp_df.head(rows_needed) # Trim if this chunk overshoots
+                temp_df = temp_df.head(rows_needed) 
             
             if len(temp_df) == 0: 
                 break
@@ -76,9 +73,9 @@ def simulate_large_transactions_csv(target_rows=50000, input_csv_path=TRANSACTIO
     except FileNotFoundError: 
         logging.error(f"Error: File not found during simulation. Input: {input_csv_path}")
         raise
-    except ValueError as ve: # Catch the ValueError raised for missing id
+    except ValueError as ve: 
         logging.error(f"Configuration error for simulation: {ve}")
-        raise # Re-raise to halt pipeline if this is critical
+        raise # 
     except Exception as e:
         logging.error(f"An unexpected error occurred during data simulation: {e}")
         raise

@@ -2,11 +2,10 @@
 
 import pandas as pd
 from src.database import get_db_connection, close_db_connection
-from src.config import CANONICAL_ADDRESSES_CSV, TRANSACTIONS_CSV # Assuming these are defined
+from src.config import CANONICAL_ADDRESSES_CSV, TRANSACTIONS_CSV 
 import logging
-import psycopg2.extras # Required for execute_values
+import psycopg2.extras 
 import time
-# Removed import psutil
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -22,7 +21,7 @@ def ingest_canonical_addresses(csv_path=CANONICAL_ADDRESSES_CSV):
     conn = None
 
     try:
-        chunk_size = 10000
+        chunk_size = 5000
         # Use iterator=True with chunksize for better memory management with large files
         csv_chunks = pd.read_csv(csv_path, sep=',', chunksize=chunk_size, low_memory=False, iterator=True)
         conn = get_db_connection()
@@ -116,13 +115,13 @@ def ingest_transactions(csv_path=TRANSACTIONS_CSV):
             'geog'
         ]
 
-        # Map CSV columns to DB columns explicitly if needed, or assume direct mapping
-        # If CSV column names don't exactly match db_columns, you'd need a mapping step here.
+        # We Map CSV columns to DB columns explicitly if needed, or assume direct mapping
+        # If CSV column names don't exactly match db_columns, we need a mapping step here.
 
         date_cols_to_parse = ['created_at', 'updated_at', 'list_date', 'pending_date']
         # Numeric columns that might contain NaNs needing conversion to None
         numeric_cols_to_clean = ['price', 'bedrooms', 'bathrooms', 'square_feet',
-                                 'year_built', 'latitude', 'longitude'] # Add others as needed
+                                 'year_built', 'latitude', 'longitude']
 
         total_rows = 0
 

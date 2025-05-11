@@ -20,8 +20,8 @@ The project is designed to run within Docker containers.
     * Install Docker and Docker Compose: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 2.  **Clone the Repository:**
     ```bash
-    git clone <your_repository_url>
-    cd <your_repository_directory>
+    git clone https://github.com/omache/Pipeline-1.git
+    cd Pipeline-1
     ```
 3.  **Prepare Input Data:**
     * Place your `11211 Addresses.csv` and `transactions_2_11211.csv` files inside the `./data/input` directory.

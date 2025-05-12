@@ -14,7 +14,15 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src'
 from src import ingest, parse, match, fallback, report, simulate_data
 from src.config import DB_CONFIG, SIMULATED_TRANSACTIONS_CSV, TRANSACTIONS_CSV
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# --- Configure logging to output to a file instead of the console ---
+# Specify the log file path. You can change 'pipeline.log' to your desired file name.
+# 'filemode='w'' will overwrite the log file each time the script runs. Use 'a' for append mode.
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='pipeline.log', # Direct output to this file
+    filemode='w'             # Overwrite the log file each time
+)
 
 # --- Helper function to check database connection ---
 def check_db_connection():
@@ -35,25 +43,27 @@ def run_step(step_name, step_function, *args, **kwargs):
     """Runs a pipeline step and logs its duration."""
     logging.info(f"--- Starting Step: {step_name} ---")
     start_time = time.time()
-    
+
     # Get memory before execution
     process = psutil.Process(os.getpid())
-    mem_before = process.memory_info().rss / 1024 / 1024 
-    
+    mem_before = process.memory_info().rss / 1024 / 1024
+
     try:
         step_function(*args, **kwargs)
         end_time = time.time()
         duration = end_time - start_time
-        
+
         # Get memory after execution
-        mem_after = process.memory_info().rss / 1024 / 1024 
+        mem_after = process.memory_info().rss / 1024 / 1024
         mem_diff = mem_after - mem_before
-        
+
         logging.info(f"--- Step Completed: {step_name} in {duration:.2f} seconds ---")
         logging.info(f"--- Memory Usage: {mem_after:.2f} MB (Δ: {mem_diff:+.2f} MB) ---")
         return duration
     except Exception as e:
         logging.error(f"--- Step Failed: {step_name} with error: {e} ---")
+        # Log error to file, but we might still want critical errors on console
+        # For now, all output goes to file as per request.
         sys.exit(1)
 
 # --- Function to run the full pipeline ---
@@ -67,7 +77,7 @@ def run_full_pipeline(use_simulated_data=False):
         sys.exit(1)
 
     total_runtime = 0
-    
+
     # Get initial memory usage
     process = psutil.Process(os.getpid())
     initial_memory = process.memory_info().rss / 1024 / 1024  # Convert to MB
@@ -87,7 +97,7 @@ def run_full_pipeline(use_simulated_data=False):
     try:
         conn = ingest.get_db_connection()
         cur = conn.cursor()
-        
+
         cur.execute("TRUNCATE TABLE transactions;")
         cur.execute("TRUNCATE TABLE canonical_addresses;")
         conn.commit()
@@ -128,11 +138,15 @@ def run_full_pipeline(use_simulated_data=False):
     logging.info(f"Memory Growth During Execution: {memory_increase:.2f} MB")
     logging.info("---------------------------")
 
+# Note: monitor_memory_usage function is less relevant when using memory_profiler's @profile
+# It's also not actively called in the main execution flow unless explicitly triggered.
+# The @profile decorator handles memory profiling when used with memory_profiler's command-line tool
+# or the memory_usage function.
 def monitor_memory_usage():
     """Function to monitor memory usage of the current process."""
     process = psutil.Process(os.getpid())
     max_memory = 0
-    
+
     while True:
         try:
             current_memory = process.memory_info().rss / 1024 / 1024  # MB
@@ -140,51 +154,64 @@ def monitor_memory_usage():
             time.sleep(0.1)  # Check every 100ms
         except:
             break
-    
+
     return max_memory
 
 if __name__ == "__main__":
     if '--profile-memory' in sys.argv:
         logging.info("Running script with memory profiling...")
         use_simulated_data = '--simulate' in sys.argv
-        
+
         try:
             logging.info("Starting memory profiling...")
-            
+
             def run_profiled():
+                # Note: When using memory_usage, the output normally goes to stdout/stderr
+                # memory_profiler's @profile decorator output also goes to stdout by default.
+                # To redirect @profile output to a file, you typically run the script
+                # using `python -m memory_profiler your_script.py`.
+                # The memory_usage function returns the measurements, allowing you to log them.
                 return run_full_pipeline(use_simulated_data=use_simulated_data)
-            
-            mem_usage = memory_usage((run_profiled, tuple(), dict()), 
-                                    interval=0.1, 
-                                    timeout=None,
-                                    include_children=True,
-                                    max_iterations=None,
-                                    retval=True)
-            
+
+            # The memory_usage function itself might print, but its measurements are returned.
+            # We capture the returned measurements and log them to the file.
+            mem_usage = memory_usage((run_profiled, tuple(), dict()),
+                                     interval=0.1,
+                                     timeout=None,
+                                     include_children=True,
+                                     max_iterations=None,
+                                     retval=True)
+
             memory_measurements, function_result = mem_usage
-            
+
             if memory_measurements and isinstance(memory_measurements, (list, tuple)):
                 peak_memory = max(memory_measurements)
-                logging.info(f"Peak Memory Usage: {peak_memory:.2f} MB")
-                
-                # Save detailed memory profile to file
-                with open('memory_profile.log', 'w') as f:
+                logging.info(f"Peak Memory Usage (from memory_usage function): {peak_memory:.2f} MB")
+
+                # Save detailed memory profile measurements to file
+                # Note: This is separate from the output generated by the @profile decorator
+                # if you were running the script with `python -m memory_profiler`.
+                # The @profile decorator's line-by-line output will still go to stdout/stderr
+                # unless you redirect it at the OS level when running `python -m memory_profiler`.
+                with open('detailed_memory_profile_measurements.log', 'w') as f:
+                    f.write("Time (s), Memory (MB)\n")
                     for i, mem in enumerate(memory_measurements):
-                        f.write(f"{i * 0.1}s: {mem:.2f} MB\n")
-                
-                logging.info(f"Detailed memory profile saved to 'memory_profile.log'")
+                        f.write(f"{i * 0.1:.1f},{mem:.2f}\n") # Writing in a simple CSV format
+
+                logging.info(f"Detailed memory profile measurements saved to 'detailed_memory_profile_measurements.log'")
             else:
-                logging.error("Memory profiling didn't return valid measurements")
-                # Fallback to psutil for basic memory info
+                logging.error("Memory profiling didn't return valid measurements from memory_usage.")
+                # Fallback to psutil for basic memory info (and log it to the file)
                 process = psutil.Process(os.getpid())
                 current_memory = process.memory_info().rss / 1024 / 1024  # MB
-                logging.info(f"Current Memory Usage (fallback): {current_memory:.2f} MB")
-        
+                logging.info(f"Current Memory Usage (fallback from memory_profiler error): {current_memory:.2f} MB")
+
         except Exception as e:
             logging.error(f"Error during memory profiling: {e}")
             logging.info("Falling back to standard execution...")
+            # Standard execution will still log to the file
             run_full_pipeline(use_simulated_data=use_simulated_data)
-        
+
     else:
         # Normal execution path
         use_simulated_data = '--simulate' in sys.argv
